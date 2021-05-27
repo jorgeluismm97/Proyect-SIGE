@@ -1,0 +1,84 @@
+﻿namespace SiGe
+{
+    public interface IMainCommandText
+    {
+        // IdentityDocumentType
+
+        string AddIdentityDocumentType { get; }
+        string UpdateIdentityDocumentType { get; }
+        string GetIdentityDocumentTypeById { get; }
+        string GetAllIdentityDocumentType { get; }
+
+        // Person
+
+        string AddPerson { get; }
+        string UpdatePerson { get; }
+        string GetPersonById { get; }
+        string GetAllPerson { get; }
+        string GetPersonByIdentityDocumentTypeIdIdentityDocumentNumber { get; }
+        string GetPersonByCompanyId { get; }
+        string GetPersonWithOutUserByCompanyId { get; }
+
+        // Company
+
+        string AddCompany { get; }
+        string UpdateCompany { get; }
+        string GetCompanyById { get; }
+        string GetAllCompany { get; }
+        string GetCompanyByIdentityDocumentNumber { get; }
+        string GetCompanyByUserId { get; }
+        string GetCompanyByUserNameIdentityDocumentNumber { get; }
+
+        // Mai_PersonCompany
+
+        string AddPersonCompany{ get; }
+        string UpdatePersonCompany { get; }
+        string GetPersonCompanyById { get; }
+        string GetAllPersonCompany { get; }
+
+        // Mai_CompanyCertificate
+
+        string AddCompanyCertificate { get; }
+        string UpdateCompanyCertificate { get; }
+        string GetCompanyCertificateById { get; }
+        string GetAllCompanyCertificate{ get; }
+
+        // Mai_CompanyCredential
+
+        string AddCompanyCredential { get; }
+        string UpdateCompanyCredential { get; }
+        string GetCompanyCredentialById { get; }
+        string GetAllCompanyCredential { get; }
+
+        // Mai_BranchOffice
+
+        string AddBranchOffice { get; }
+        string UpdateBranchOffice { get; }
+        string GetBranchOfficeById { get; }
+        string GetAllBranchOfficeCard { get; }
+        string GetBranchOfficeByCompanyId { get; }
+        string GetBranchOfficeByCode { get; }
+
+        // Mai_CustomerProvider
+
+        string AddCustomerProvider { get; }
+        string UpdateCustomerProvider { get; }
+        string GetCustomerProviderById { get; }
+        string GetAllCustomerProvider { get; }
+        string GetCustomerProviderByIdentityDocumentNumber { get;  }
+
+        // Mai_MethodPayment
+
+        string AddMethodPayment { get; }
+        string UpdateMethodPayment { get; }
+        string GetMethodPaymentById { get; }
+        string GetAllMethodPayment { get; }
+
+        // UserCompany
+
+        string AddUserCompany { get; }
+        string UpdateUserCompany { get; }
+        string GetUserCompanyById { get; }
+        string GetAllUserCompany { get; }
+    }
+}

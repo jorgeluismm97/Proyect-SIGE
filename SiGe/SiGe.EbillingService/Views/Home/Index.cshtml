@@ -1,0 +1,101 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model SiGe.HomeViewModel;
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Dashboard</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Panel Administracion</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+@if (Context.Session.GetInt32("IdentityAction") == 1)
+{
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div>
+                    <h3>Numero de Empresas Registradas</h3>
+                    <p class="">Usted tiene 2 empresas registradas</p>
+                </div>
+
+                <div>
+                    <h3>Numero de Empresas Registradas</h3>
+                    <p class="">Usted tiene 1 empresa con suscripción</p>
+                </div>
+                <div>
+                    <h3>Para iniciar registre su empresa.</h3>
+                    <p class="">Usted puede tener varios negocios administrados desde nuestra plataforma.</p>
+                    <p class="">
+                        <a asp-controller="Company" asp-action="Create" class="btn btn-sm btn-success">Registre su Empresa</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+<div class="row clearfix progress-box">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card-box pd-30 height-100-p">
+            <div class="progress-box text-center">
+                <input type="text" class="knob dial1" value="80" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#1b00ff" data-angleOffset="180" readonly>
+                <h5 class="text-blue padding-top-10 h5">Total de Clientes</h5>
+                <span class="d-block">80% Promedio <i class="fa fa-line-chart text-blue"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card-box pd-30 height-100-p">
+            <div class="progress-box text-center">
+                <input type="text" class="knob dial2" value="70" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#00e091" data-angleOffset="180" readonly>
+                <h5 class="text-light-green padding-top-10 h5">Total de Entradas de Productos</h5>
+                <span class="d-block">75% Promedio <i class="fa text-light-green fa-line-chart"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card-box pd-30 height-100-p">
+            <div class="progress-box text-center">
+                <input type="text" class="knob dial3" value="90" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#f56767" data-angleOffset="180" readonly>
+                <h5 class="text-light-orange padding-top-10 h5">Total de Salidas de Productos</h5>
+                <span class="d-block">90% Promedio <i class="fa text-light-orange fa-line-chart"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+        <div class="card-box pd-30 height-100-p">
+            <div class="progress-box text-center">
+                <input type="text" class="knob dial4" value="65" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#a683eb" data-angleOffset="180" readonly>
+                <h5 class="text-light-purple padding-top-10 h5">Total de ventas</h5>
+                <span class="d-block">65% Promedio <i class="fa text-light-purple fa-line-chart"></i></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-7 col-md-12 col-sm-12 mb-30">
+        <div class="card-box pd-30 height-100-p">
+            <h4 class="mb-30 h4">Entradas y Salidas</h4>
+            @*chart1*@
+            <div id="compliance-trend" class="compliance-trend"></div>
+        </div>
+    </div>
+    <div class="col-lg-5 col-md-12 col-sm-12 mb-30">
+        <div class="card-box pd-30 height-100-p">
+            <h4 class="mb-30 h4">Ventas</h4>
+            @*chart2*@
+            <div id="chart" class="chart"></div>
+        </div>
+    </div>
+</div>
+}

@@ -1,0 +1,72 @@
+﻿@model List<SiGe.PersonModel>
+
+@{ ViewData["Title"] = "Persona"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Personal</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Personal</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Lista del Personal</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<p>
+    <a type="button" class="btn btn-success" asp-controller="Person" asp-action="Create">Nuevo Personal</a>
+</p>
+
+<!-- Simple Datatable start -->
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Listado del Personal</h4>
+    </div>
+    <div class="pb-20">
+        <table id="example" class="data-table table stripe hover nowrap">
+            <thead>
+                <tr>
+                    <th class="table-plus datatable-nosort">DNI</th>
+                    <th>Apellido Paterno</th>
+                    <th>Apellido Materno</th>
+                    <th>Nombres</th>
+                    <th class="datatable-nosort">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    string selectedRow = "";
+                    if (item.PersonId == (int?)ViewData["PersonId"])
+                    {
+                        selectedRow = "success";
+                    }
+
+                <tr class="@selectedRow">
+                    <td class="table-plus"> @Html.DisplayFor(modelItem => item.IdentityDocumentNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.FatherLastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MotherLastName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>
+                        <div class="dropdown2">
+                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                <i class="dw dw-more"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.PersonId"><i class="dw dw-edit2"></i>Edit</a>
+                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.PersonId"><i class="dw dw-delete-3"></i>Eliminar</a>
+                                <a class="dropdown-item" asp-action="Details" asp-route-id="@item.PersonId"><i class="dw dw-delete-3"></i>Detalles</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Simple Datatable End -->

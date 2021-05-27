@@ -1,0 +1,61 @@
+﻿@model SiGe.ProductModel;
+
+@{ ViewData["Title"] = "Modificar"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Editar Producto</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Producto</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis Productos</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos de Empresa</h4>
+        </div>
+    </div>
+    <form asp-controller="Company" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ProductId" />
+        <input type="hidden" asp-for="CompanyId" />
+
+        <div class="form-group row">
+            <label asp-for="Code" class="col-sm-12 col-md-2 col-form-label">Codigo</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Code" class="form-control" type="number" readonly>
+                <span asp-validation-for="Code" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Description" class="col-sm-12 col-md-2 col-form-label">Descripción : </label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Description" class="form-control" type="text" placeholder="Descripción">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Summary" class="col-sm-12 col-md-2 col-form-label">Resumen :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Summary" class="form-control" type="text" placeholder="Resumen">
+                <span asp-validation-for="Summary" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+        </div>
+    </form>
+</div>

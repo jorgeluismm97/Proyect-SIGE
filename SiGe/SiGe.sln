@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiGe.EbillingService", "SiGe.EbillingService\SiGe.EbillingService.csproj", "{D012E5C1-8DB3-4135-82D7-EC241051CCC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiGe.ModelsLayer", "Sige.ModelsLayer\SiGe.ModelsLayer.csproj", "{7027094D-0CD0-4DF3-939C-3B116C9B25FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiGe.DataLayer", "SiGe.DataLayer\SiGe.DataLayer.csproj", "{CBFA066D-B2D4-46E1-95F9-4BF99F791A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiGe.BusinessLayer", "SiGe.BusinessLayer\SiGe.BusinessLayer.csproj", "{0BE6845E-04F7-455B-86A9-DDBB9E614A66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiGe.Helper", "Sige.Helper\SiGe.Helper.csproj", "{E2721F3F-06A6-43C1-BC06-CE5D7EC99256}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{6625DB4C-F6B9-45C9-A838-46CAAA821075}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Layers", "Layers", "{6C628B5F-A9C2-4A80-9C4D-02DA76FE6572}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{1B1F1422-6F09-4AFD-877D-7DF51A788066}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D012E5C1-8DB3-4135-82D7-EC241051CCC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D012E5C1-8DB3-4135-82D7-EC241051CCC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D012E5C1-8DB3-4135-82D7-EC241051CCC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D012E5C1-8DB3-4135-82D7-EC241051CCC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7027094D-0CD0-4DF3-939C-3B116C9B25FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7027094D-0CD0-4DF3-939C-3B116C9B25FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7027094D-0CD0-4DF3-939C-3B116C9B25FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7027094D-0CD0-4DF3-939C-3B116C9B25FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBFA066D-B2D4-46E1-95F9-4BF99F791A30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBFA066D-B2D4-46E1-95F9-4BF99F791A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBFA066D-B2D4-46E1-95F9-4BF99F791A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBFA066D-B2D4-46E1-95F9-4BF99F791A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE6845E-04F7-455B-86A9-DDBB9E614A66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE6845E-04F7-455B-86A9-DDBB9E614A66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE6845E-04F7-455B-86A9-DDBB9E614A66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE6845E-04F7-455B-86A9-DDBB9E614A66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2721F3F-06A6-43C1-BC06-CE5D7EC99256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2721F3F-06A6-43C1-BC06-CE5D7EC99256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2721F3F-06A6-43C1-BC06-CE5D7EC99256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2721F3F-06A6-43C1-BC06-CE5D7EC99256}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D012E5C1-8DB3-4135-82D7-EC241051CCC8} = {6625DB4C-F6B9-45C9-A838-46CAAA821075}
+		{7027094D-0CD0-4DF3-939C-3B116C9B25FC} = {6C628B5F-A9C2-4A80-9C4D-02DA76FE6572}
+		{CBFA066D-B2D4-46E1-95F9-4BF99F791A30} = {6C628B5F-A9C2-4A80-9C4D-02DA76FE6572}
+		{0BE6845E-04F7-455B-86A9-DDBB9E614A66} = {6C628B5F-A9C2-4A80-9C4D-02DA76FE6572}
+		{E2721F3F-06A6-43C1-BC06-CE5D7EC99256} = {1B1F1422-6F09-4AFD-877D-7DF51A788066}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BC5A633-AAC9-4725-9915-96FE8ABC1A4E}
+	EndGlobalSection
+EndGlobal

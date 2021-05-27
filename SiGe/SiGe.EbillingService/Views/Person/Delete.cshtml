@@ -1,0 +1,48 @@
+﻿@model SiGe.PersonModel;
+
+@{ ViewData["Title"] = "Delete"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h1>Eliminar</h1>
+            <div>
+                <h3>¿Esta seguro que desea eliminar este registro?</h3>
+            </div>
+            <hr />
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.IdentityDocumentNumber)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.IdentityDocumentNumber)</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.FatherLastName)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.FatherLastName)</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.MotherLastName)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.MotherLastName)</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.Name)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.Name)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PersonId" />
+        <span asp-validation-for="PersonId" class="text-danger"></span>
+        <input type="submit" value="Eliminar" class="btn btn-warning" />
+        <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+    </form>
+</div>

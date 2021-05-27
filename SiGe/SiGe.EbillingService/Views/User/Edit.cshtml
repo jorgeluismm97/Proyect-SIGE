@@ -1,0 +1,57 @@
+﻿@model SiGe.UserViewModel ;
+
+@{ ViewData["Title"] = "Modificar"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Editar Usuario</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Usuario</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Datos de Usuario</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos de Empresa</h4>
+        </div>
+    </div>
+    <form asp-controller="User" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="UserId" />
+
+        <div class="form-group">
+            <label asp-for="personId">Personal</label>
+            <select asp-for="personId" class="form-control" disabled>
+                @foreach (var item in Model.personModels)
+                 {
+                    <option value="@item.PersonId">@string.Concat(item.IdentityDocumentNumber + " - " + item.FatherLastName + " " + item.MotherLastName + ", " + item.Name)</option>
+                 }
+            </select>
+            <span asp-validation-for="personId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label">Password</label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="control-label">Confirmar Password</label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<!-- Default Basic Forms End -->

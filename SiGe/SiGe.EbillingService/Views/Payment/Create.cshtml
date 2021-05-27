@@ -1,0 +1,39 @@
+﻿@model SiGe.PaymentModel;
+
+@{ ViewData["Title"] = "Nueva Suscripción"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h1>Registro de Suscripción</h1>
+            <div>
+                <h3>Empresa</h3>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-8">
+                    <form asp-controller="Payment" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="CompanyId" />
+                        <div class="form-group">
+                            <label asp-for="PaymentPlanId" class="control-label">Suscripción:</label>
+                            <select asp-for="PaymentPlanId" class="form-control" title="Tipo de Usuario">
+                                <option value="1">Plan Mensual - 50 S/</option>
+                                <option value="2">Plan Anual - 500 S/</option>
+                            </select>
+                            <span asp-validation-for="PaymentPlanId" class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Obtener" class="btn btn-success" />
+                            <input asp-action="Index" asp-controller="Company" type="submit" value="Volver" class="btn btn-danger" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+   
+</div>

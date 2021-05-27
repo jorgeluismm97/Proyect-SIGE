@@ -1,0 +1,54 @@
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\Sige.ModelsLayer.deps.json
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\Sige.ModelsLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\Sige.ModelsLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\Sige.ModelsLayer.AssemblyInfoInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\Sige.ModelsLayer.AssemblyInfo.cs
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\Sige.ModelsLayer.csproj.CoreCompileInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\Sige.ModelsLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\Sige.ModelsLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.deps.json
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfo.cs
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\git sige\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.deps.json
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csprojAssemblyReference.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfoInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfo.cs
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csproj.CoreCompileInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe123\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.deps.json
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfo.cs
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\entregable 1\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.deps.json
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfo.cs
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\SiGe (3)\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.deps.json
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.AssemblyInfo.cs
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\PC\Desktop\SiGe\Sige.ModelsLayer\obj\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb

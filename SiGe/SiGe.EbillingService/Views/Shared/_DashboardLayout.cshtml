@@ -1,0 +1,226 @@
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SiGe.EbillingService</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/core.css">
+    <link rel="stylesheet" type="text/css" href="~/css/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/datatables/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/jquery-jvectormap-2.0.3.css">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+
+        </div>
+        <div class="header-right">
+            <div class="user-info-dropdown">
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                        <span class="user-icon">
+                            <img src="~/img/photo1.jpg" alt="">
+                        </span>
+                        <span class="user-name">@User.Identity.Name</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                        <a class="dropdown-item" href="@Url.Action("Logout", "Account")"><i class="dw dw-logout"></i>Salir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="left-side-bar">
+        <div class="brand-logo">
+            <a href="index.html">
+                <img src="~/img/deskapp-logo-white.svg" alt="" class="light-logo">
+            </a>
+
+        </div>
+        <div class="menu-block customscroll">
+            <div class="sidebar-menu">
+                <ul id="accordion-menu">
+
+                    @if (Context.Session.GetInt32("IdentityAction") == 1)
+                    {
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <span><img src="/img/home.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Inicio</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home")">Panel Administracion</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <span><img src="/img/settings.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Configuracion</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a class="nav-link" href="@Url.Action("Edit", "Account")">Usuario</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <span><img src="/img/company.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Empresas</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a class="nav-link" href="@Url.Action("Index", "Company")">Datos de Empresa</a></li>
+                            </ul>
+                        </li>
+                        @*<li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle">
+                    <span><img src="/img/payment.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Logistica</span>
+                </a>
+                <ul class="submenu">
+                    <li><a class="nav-link" href="@Url.Action("Index", "Payment")">Suscripcion</a></li>
+                </ul>
+            </li>*@
+
+                    }
+                    else
+                    {
+                        if (Context.Session.GetInt32("isAdministrator") == 1)
+                        {
+                            <li class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle">
+                                    <span><img src="/img/home.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Inicio</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li><a class="nav-link active" aria-current="page" href="@Url.Action("Index", "Home")">Panel Administracion</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle">
+                                    <span><img src="/img/reportpayme.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Administración</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li><a href="@Url.Action("Index", "Company")">Datos de Empresa</a></li>
+                                    <li><a href="@Url.Action("Index", "BranchOffice")">Lista de Sucursales</a></li>
+                                    <li><a href="#">Lista de Series</a></li>
+                                    <li><a class="nav-link" href="@Url.Action("Index", "Person")">Lista del Personal</a></li>
+                                    <li><a href="@Url.Action("Index", "User")">Lista de Usuarios</a></li>
+                                </ul>
+                            </li>
+                        }
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <span><img src="/img/reportpayme.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Logistica</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a class="nav-link" href="@Url.Action("Index", "Product")">Lista de Productos</a></li>
+                                <li><a href="#">Notas de Entrada</a></li>
+                                <li><a href="#">Notas de Salida</a></li>
+                                <li><a href="#">Kardex</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <span><img src="/img/reportpayme.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Facturacion</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#">Lista de Clientes</a></li>
+                                <li><a href="#">Emision de Comprobantes</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <div class="dropdown-divider"></div>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle">
+                                <span><img src="/img/reportpayme.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Reportes</span>
+                            </a>
+                            <ul class="submenu">
+                                @*<li><a class="nav-link" href="#">Ingresos por Suscripcion</a></li>*@
+                                <li><a class="nav-link" href="#">Ingresos de Ventas</a></li>
+                                <li><a class="nav-link" href="#">Total de Ventas</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
+    <div class="main-container">
+        <div class="pd-ltr-20 xs-pd-20-10">
+            <div class="min-height-200px">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-wrap pd-20 mb-20 card-box">
+        <div>
+            <div class="d-flex justify-content-center">&copy; 2021 - SIGE - Servicio Integrado de Gestión Empresarial</div>
+        </div>
+    </footer>
+
+    <script src="~/js/core.js"></script>
+    <script src="~/js/script.min.js"></script>
+    <script src="~/js/process.js"></script>
+    <script src="~/js/layout-settings.js"></script>
+    <!-- Datatable Setting js -->
+    <script src="~/js/datatable-setting.js"></script>
+
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!--js-->
+    <script src="~/js/plugins/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/plugins/dataTables.responsive.min.js"></script>
+    <script src="~/js/plugins/responsive.bootstrap4.min.js"></script>
+
+    <script src="~/js/plugins/jquery.knob.min.js"></script>
+    <script src="~/js/plugins/highcharts.js"></script>
+    <script src="~/js/plugins/highcharts-more.js"></script>
+    <script src="~/js/plugins/jquery-jvectormap-2.0.3.min.js"></script>
+    <script src="~/js/plugins/jquery-jvectormap-world-mill-en.js"></script>
+
+    <!-- buttons for Export datatable -->
+    <script src="~/js/plugins/dataTables.buttons.min.js"></script>
+    <script src="~/js/plugins/buttons.bootstrap4.min.js"></script>
+    <script src="~/js/plugins/buttons.print.min.js"></script>
+    <script src="~/js/plugins/buttons.html5.min.js"></script>
+    <script src="~/js/plugins/buttons.flash.min.js"></script>
+    <script src="~/js/plugins/pdfmake.min.js"></script>
+    <script src="~/js/plugins/vfs_fonts.js"></script>
+    <script src="~/js/dashboard2.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <script>
+
+        //Idiomas con el 1er método   
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "bDestroy": true,
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                    
+                }
+
+            });
+        });
+    </script>
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿@model SiGe.PersonModel;
+
+@{ ViewData["Title"] = "Nuevo"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Nuevo Registro</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Empresa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mi Personal</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos del Personal</h4>
+        </div>
+    </div>
+    <form asp-controller="Person" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group row">
+            <label asp-for="IdentityDocumentNumber" class="col-sm-12 col-md-2 col-form-label">Numero Documento Identidad :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="IdentityDocumentNumber" class="form-control" type="number" readonly>
+                <span asp-validation-for="IdentityDocumentNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="FatherLastName" class="col-sm-12 col-md-2 col-form-label">Apellido Paterno :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="FatherLastName" class="form-control" type="text" placeholder="Apellido Paterno">
+                <span asp-validation-for="FatherLastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="MotherLastName" class="col-sm-12 col-md-2 col-form-label">Apellido Materno :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="MotherLastName" class="form-control" type="text" placeholder="Apellido Materno">
+                <span asp-validation-for="MotherLastName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-12 col-md-2 col-form-label">Nombre :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Name" class="form-control" type="text" placeholder="Nombre">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Email" class="col-sm-12 col-md-2 col-form-label">Email :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Email" class="form-control" type="text" placeholder="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+        </div>
+    </form>
+</div>

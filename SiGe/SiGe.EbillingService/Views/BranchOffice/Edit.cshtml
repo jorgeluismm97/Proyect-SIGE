@@ -1,0 +1,68 @@
+﻿@model SiGe.BranchOfficeViewModel ;
+
+@{ ViewData["Title"] = "Modificar"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Editar Sucursal</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Sucursales</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mi Sucursal</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Default Basic Forms Start -->
+<div class="row">
+    <div class="col-md-8">
+        <form asp-controller="BranchOffice" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="branchOfficeModel.BranchOfficeId" />
+            <div class="form-group">
+                <label asp-for="branchOfficeModel.PersonId">Personal</label>
+                <select asp-for="branchOfficeModel.PersonId" class="form-control">
+                    @foreach (var item in Model.personModels)
+                    {
+        <option value="@item.PersonId">@string.Concat(item.FatherLastName + " " + item.MotherLastName + ", " + item.Name)</option>
+}
+                </select>
+                <span asp-validation-for="branchOfficeModel.PersonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="branchOfficeModel.Code" class="control-label">Codigo :</label>
+                <input asp-for="branchOfficeModel.Code" class="form-control" />
+                <span asp-validation-for="branchOfficeModel.Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="branchOfficeModel.Name" class="control-label">Nombre :</label>
+                <input asp-for="branchOfficeModel.Name" class="form-control" />
+                <span asp-validation-for="branchOfficeModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="branchOfficeModel.Address" class="control-label">Direccion :</label>
+                <input asp-for="branchOfficeModel.Address" class="form-control" />
+                <span asp-validation-for="branchOfficeModel.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="branchOfficeModel.Telephone" class="control-label">Telefono :</label>
+                <input asp-for="branchOfficeModel.Telephone" class="form-control" />
+                <span asp-validation-for="branchOfficeModel.Telephone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="branchOfficeModel.Cellular" class="control-label">Celular :</label>
+                <input asp-for="branchOfficeModel.Cellular" class="form-control" />
+                <span asp-validation-for="branchOfficeModel.Cellular" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Default Basic Forms End -->

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "nOXTsRI9bJkhsANLd6Ktikd/xOOjwFru5+g8uGxS/VCZ9KK5hoyzxWjQ3lohyh3TJtkSFX7B/b0PFQYBCV60Lw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
