@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 
@@ -35,5 +36,14 @@ namespace SiGe
             return await _documentRepository.GetAllAsync();
         }
 
+        // Advanced
+
+        public async Task<List<DocumentViewModel>> GetByCompanyIdAsync(int companyId)
+        {
+            return await _documentRepository.GetByCompanyIdAsync(companyId);
+        }
+
+
+        
     }
 }

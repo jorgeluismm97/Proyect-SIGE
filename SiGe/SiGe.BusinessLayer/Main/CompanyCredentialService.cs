@@ -34,5 +34,12 @@ namespace SiGe
             return await _companyCredentialRepository.GetAllAsync();
         }
 
+        // Advanced
+
+
+        public async Task<List<CompanyCredentialModel>> GetByCompanyIdAsync(int companyId)
+        {
+            return await _companyCredentialRepository.GetByCompanyIdAsync(companyId);
+        }
     }
 }

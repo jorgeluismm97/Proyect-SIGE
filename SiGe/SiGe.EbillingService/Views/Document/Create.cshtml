@@ -1,0 +1,371 @@
+﻿@model SiGe.DocumentCreateViewModel;
+
+@{ ViewData["Title"] = "Nuevo"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Nuevo Comprbante</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Comprobantes</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis Comprobantes</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos del Comprobante</h4>
+        </div>
+    </div>
+    <form asp-controller="Document" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="form-group row col-md-4">
+                <label asp-for="DocumentTypeId" class="col-sm-6 col-md-3 col-form-label">Comprobante</label>
+                <div class="col-sm-12 col-md-9">
+                    <select asp-for="DocumentTypeId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
+                        <optgroup label="Elige una opcion" data-max-options="2">
+                            @foreach (var item in Model.DocumentTypes)
+                            {
+                <option value="@item.DocumentTypeId">@string.Concat(item.Description)</option>}
+                        </optgroup>
+                    </select>
+                    <span asp-validation-for="DocumentTypeId" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row col-md-5" ">
+                <label asp-for="Serie" class="col-sm-6 col-md-3 col-form-label">Serie</label>
+                <div class="col-sm-12 col-md-9">
+                    <select asp-for="Serie" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
+                        <optgroup label="Elige una opcion" data-max-options="2">
+                            @foreach (var item in Model.Series)
+                            {
+                <option value="@item.DocumentTypeBranchOfficeSerieId">@string.Concat(item.Serie)</option>}
+                        </optgroup>
+                    </select>
+                    <span asp-validation-for="Serie" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row col-md-3" ">
+                <label asp-for="Number" class="col-sm-6 col-md-4 col-form-label">Número</label>
+                <div class="col-sm-12 col-md-8">
+                    <input asp-for="Number" class="form-control" placeholder="Serie" type="text">
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <input asp-for="Customer.CustomerId" class="form-control" type="hidden">
+            <div class="form-group row col-md-4">
+                <label asp-for="Customer.IdentityDocumentNumber" class="col-sm-12 col-md-3 col-form-label">RUC/DNI</label>
+                <div class="col-sm-12 col-md-9">
+                    <input asp-for="Customer.IdentityDocumentNumber" class="form-control" type="text">
+                    <span asp-validation-for="Customer.IdentityDocumentNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row col-md-5">
+                <label asp-for="Customer.BusinessName" class="col-sm-12 col-md-3 col-form-label">Razon Social</label>
+                <div class="col-sm-12 col-md-9">
+                    <input asp-for="Customer.BusinessName" class="form-control" type="text">
+                    <span asp-validation-for="Customer.BusinessName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row col-md-3">
+                <input class="btn btn-primary popup col-md-12 " data-url="Customer/Search" data-toggle="modal" data-target="#modal-search-customer" id="CustomerModel" type="button" value="Clientes" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group row col-md-4">
+                <label asp-for="Customer.Address" class="col-sm-12 col-md-3 col-form-label">Dirección</label>
+                <div class="col-sm-12 col-md-9">
+                    <input asp-for="Customer.Address" class="form-control" type="text">
+                    <span asp-validation-for="Customer.Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row col-md-5">
+                <label asp-for="IssueDate" class="col-sm-12 col-md-3 col-form-label">Fecha de Emis.</label>
+                <div class="col-sm-12 col-md-9">
+                    <input asp-for="IssueDate" class="form-control" placeholder="Serie" type="date">
+                    <span asp-validation-for="IssueDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row col-md-3">
+                <label asp-for="MethodPaymentId" class="col-sm-12 col-md-4 col-form-label">F. de Pago</label>
+                <div class="col-sm-12 col-md-8">
+                    <select asp-for="MethodPaymentId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
+                        <optgroup label="Elige una opcion" data-max-options="2">
+                            @foreach (var item in Model.MethodPayments)
+                            {
+                <option value="@item.MethodPaymentId">@string.Concat(item.Description)</option>}
+                        </optgroup>
+                    </select>
+                    <span asp-validation-for="MethodPaymentId" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-primary popup" data-url="Product/Search" data-toggle="modal" data-target="#modal-search-product" id="ProductModel" type="button" value="Productos" />
+        </div>
+
+        <div class="card-box mb-30">
+            <div class="pd-20">
+                <h4 class="text-blue h4">Listado del Productos</h4>
+            </div>
+            <div class="pb-20">
+                <table id="example" class="data-table table stripe hover nowrap">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio Total</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Details)
+                        {
+                            string selectedRow = "";
+                            if (item.ProductId == (int?)ViewData["ProductId"])
+                            {
+                                selectedRow = "success";
+                            }
+
+            <tr class="@selectedRow">
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Description)</td>
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Quantity)</td>
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Price())</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>
+                    <div class="dropdown2">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Quitar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+
+            </div>
+            <div class="col-md-2">
+                <div class="form-group row">
+                    <label asp-for="SubTotal" class="col-sm-12 col-md-4 col-form-label">SubTotal</label>
+                    <div class="col-sm-12 col-md-8">
+                        <input asp-for="SubTotal" class="form-control" type="text">
+                        <span asp-validation-for="SubTotal" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Tax" class="col-sm-12 col-md-4 col-form-label">IGV</label>
+                    <div class="col-sm-12 col-md-8">
+                        <input asp-for="Tax" class="form-control" type="text">
+                        <span asp-validation-for="Tax" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="Total" class="col-sm-12 col-md-4 col-form-label">Total</label>
+                    <div class="col-sm-12 col-md-8">
+                        <input asp-for="Total" class="form-control" type="text">
+                        <span asp-validation-for="Total" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+        </div>
+    </form>
+</div>
+<!-- Default Basic Forms End -->
+<!--Modal-->
+<!--Product-->
+<div aria-hidden="true" aria-labelledby="modal-search-product-label" role="dialog" tabindex="-1" id="modal-search-product" class="modal fade ">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Busqueda de Productos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-box mb-30">
+                    <div class="pd-20">
+                        <h4 class="text-blue h4">Lista de Productos</h4>
+                    </div>
+                    <div class="pb-20">
+                        <table id="example" class="data-table table stripe hover nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="table-plus datatable-nosort">Codigo</th>
+                                    <th>Producto</th>
+                                    <th class="datatable-nosort">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Products)
+                                {
+                                    var i = Model.Products.IndexOf(item);
+                                    string selectedRow = "";
+                                    if (item.ProductId == (int?)ViewData["ProductId"])
+                                    {
+                                        selectedRow = "success";
+                                    }
+                    @Html.Hidden("Products[" + i + "].ProductId", item.ProductId)
+                                    @Html.Hidden("Products[" + i + "].Code", item.Code)
+                                                    @Html.Hidden("Products[" + i + "].Description", item.Description)
+
+                                                                    <tr class="@selectedRow">
+                                                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                                                                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                                                        <td>
+                                                                            <div class="dropdown2">
+                                                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                                                    <i class="dw dw-more"></i>
+                                                                                </a>
+                                                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @*<button type="button" class="btn btn-primary"></button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Customer-->
+
+<div aria-hidden="true" aria-labelledby="modal-search-customer-label" role="dialog" tabindex="-1" id="modal-search-customer" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Busqueda de Clientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-box mb-30">
+                    <div class="pd-20">
+                        <h4 class="text-blue h4">Listado de Clientes</h4>
+                    </div>
+                    <div class="pb-20">
+                        <table id="example" class="data-table table stripe hover nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="table-plus datatable-nosort">Nro Documento</th>
+                                    <th>Nombre o Razon Social</th>
+                                    <th>Dirección</th>
+                                    <th class="datatable-nosort">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Customers)
+                                {
+                                    var i = Model.Customers.IndexOf(item);
+                                    string selectedRow = "";
+                                    if (item.CustomerId == (int?)ViewData["CustomerId"])
+                                    {
+                                        selectedRow = "success";
+                                    }
+                    @Html.Hidden("Customers[" + i + "].CustomerId", item.CustomerId)
+                                    @Html.Hidden("Customers[" + i + "].IdentityDocumentNumber", item.IdentityDocumentNumber)
+                                                    @Html.Hidden("Customers[" + i + "].BusinessName", item.BusinessName)
+                                                                    @Html.Hidden("Customers[" + i + "].Address", item.Address)
+                                                                                    <tr class="@selectedRow">
+                                                                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.IdentityDocumentNumber)</td>
+                                                                                        <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
+                                                                                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                                                                        <td>
+                                                                                            <div class="dropdown2">
+                                                                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                                                                    <i class="dw dw-more"></i>
+                                                                                                </a>
+                                                                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                                                                        <a class="dropdown-item" asp-route-id="@item.CustomerId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                                                                    </div>*@
+
+                                                                                                <input type="submit" value="Seleccionar" class="btn btn-primary" name="action" id="Seleccionar" />
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @*<button type="button" class="btn btn-primary"></button>*@
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+   <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#Seleccionar").click(function () {
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddCustomer")",
+                data: {id: 1},
+                dataType: "json",
+                success: function (msg) {
+                    $("#Customer_CustomerId").val(msg.customerId);
+                    $("#Customer_IdentityDocumentNumber").val(msg.identityDocumentNumber);
+                    $("#Customer_BusinessName").val(msg.businessName);
+                    $("#Customer_Address").val(msg.address);
+                    console.log(msg);
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+                })
+            })
+        })
+    </script>
+}

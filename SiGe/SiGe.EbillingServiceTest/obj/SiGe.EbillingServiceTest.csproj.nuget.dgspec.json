@@ -1,0 +1,346 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingServiceTest\\SiGe.EbillingServiceTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj",
+        "projectName": "SiGe.BusinessLayer",
+        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj",
+        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj": {
+                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj"
+              },
+              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
+                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj",
+        "projectName": "SiGe.DataLayer",
+        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj",
+        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
+                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj"
+              },
+              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
+                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.90, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingServiceTest\\SiGe.EbillingServiceTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingServiceTest\\SiGe.EbillingServiceTest.csproj",
+        "projectName": "SiGe.EbillingServiceTest",
+        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingServiceTest\\SiGe.EbillingServiceTest.csproj",
+        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingServiceTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj": {
+                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.1, )"
+            },
+            "Moq.Dapper": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.16.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
+        "projectName": "SiGe.Helper",
+        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
+        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
+        "projectName": "SiGe.ModelsLayer",
+        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
+        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

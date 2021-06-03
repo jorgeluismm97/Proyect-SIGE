@@ -120,5 +120,35 @@ namespace SiGe
 
             return ls;
         }
+
+        // Advanced
+
+        public async Task<List<SerieViewModel>> GetByCompanyIdAsync(int companyId)
+        {
+            var ls = new List<SerieViewModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<SerieViewModel>(
+                                        _billingCommandText.GetDocumentTypeBranchOfficeSerieByCompanyId,
+                                        new
+                                        {
+                                            CompanyId = companyId
+                                        },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
     }
 }

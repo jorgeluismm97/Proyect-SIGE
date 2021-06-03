@@ -47,7 +47,7 @@ namespace SiGe.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(UserViewModel userViewModel)
         {
-            if(userViewModel.personId == 0)
+            if(userViewModel.UserId == 0)
             {
                 var person = await _personService.GetByIdAsync(userViewModel.personId);
 

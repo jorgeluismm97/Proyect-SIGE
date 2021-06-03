@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SiGe
 {
@@ -6,8 +7,9 @@ namespace SiGe
     {
         public int CompanyCredentialId { get; set; }
         public int CompanyId { get; set; }
-        public string Value { get; set; }
-        public string Password { get; set; }
-        public DateTime ExpiredDate { get; set; }
+        [Required]
+        public string UserSOL { get; set; }
+        [Required]
+        public string PasswordSOL { get; set; }
     }
 }

@@ -42,6 +42,7 @@
         string UpdateCompanyCertificate { get; }
         string GetCompanyCertificateById { get; }
         string GetAllCompanyCertificate{ get; }
+        string GetCompanyCertificateByCompanyId { get; }
 
         // Mai_CompanyCredential
 
@@ -49,6 +50,7 @@
         string UpdateCompanyCredential { get; }
         string GetCompanyCredentialById { get; }
         string GetAllCompanyCredential { get; }
+        string GetCompanyCredentialByCompanyId { get; }
 
         // Mai_BranchOffice
 
@@ -59,13 +61,14 @@
         string GetBranchOfficeByCompanyId { get; }
         string GetBranchOfficeByCode { get; }
 
-        // Mai_CustomerProvider
+        // Mai_Customer
 
-        string AddCustomerProvider { get; }
-        string UpdateCustomerProvider { get; }
-        string GetCustomerProviderById { get; }
-        string GetAllCustomerProvider { get; }
-        string GetCustomerProviderByIdentityDocumentNumber { get;  }
+        string AddCustomer { get; }
+        string UpdateCustomer { get; }
+        string GetCustomerById { get; }
+        string GetAllCustomer { get; }
+        string GetCustomerByIdentityDocumentNumber { get;  }
+        string GetCustomerByCompanyId { get; }
 
         // Mai_MethodPayment
 

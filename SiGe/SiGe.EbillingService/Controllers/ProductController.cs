@@ -129,5 +129,13 @@ namespace SiGe.Controllers
 
             return View(productModel);
         }
+
+        [HttpPost]
+        public async Task<JsonResult> BuscarProducto(string description)
+        {
+            var companyId = HttpContext.Session.GetInt32("companyId").Value;
+            var product = await _productService.GetByDescriptionCompanyIdAsync(description, companyId);
+            return Json(product);
+        }
     }
 }

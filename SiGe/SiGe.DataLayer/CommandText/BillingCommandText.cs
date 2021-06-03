@@ -8,7 +8,7 @@
         public string UpdateDocument => "Usp_Bil_U_Bil_Document";
         public string GetDocumentById => "Usp_Bil_S_Bil_Document_Get_By_DocumentId";
         public string GetAllDocument => "Usp_Bil_S_Bil_Document";
-        public string GetDocumentMainView => "Usp_Bil_S_Bil_Document_Get_Search_View";
+        public string GetDocumentByCompanyId => "Usp_Bil_S_Bil_Document_Get_By_CompanyId";
         public string GetDocumentSearchView => "Usp_Bil_S_Bil_Document_Get_Search_View_Document";
         public string GetDocumentByDocumentTypeIdSerieNumber => "Usp_Bil_S_Bil_Document_Get_By_DocumentTypeId_Serie_Number";
         public string GetDocumentNewNumber => "Usp_Bil_S_Bil_Document_Get_New_Number_By_DocumentTypeId_Serie";
@@ -34,6 +34,7 @@
         public string UpdateDocumentTypeBranchOfficeSerie => "Usp_Bil_U_Bil_DocumentTypeBranchOfficeSerie";
         public string GetDocumentTypeBranchOfficeSerieById => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_DocumentTyeBranchOfficeSerieId";
         public string GetAllDocumentTypeBranchOfficeSerie => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie";
+        public string GetDocumentTypeBranchOfficeSerieByCompanyId => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_CompanyId";
         public string GetDocumentTypeBranchOfficeSerieMainView => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_ShortView";
         public string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeIdSerie => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_By_DocumentTypeIdBranchOfficeIdSerie";
         public string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeId => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_DocumentTypeId_BranchOfficeId";

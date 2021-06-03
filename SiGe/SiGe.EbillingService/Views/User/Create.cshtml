@@ -32,7 +32,7 @@
             <label asp-for="personId" class="col-sm-12 col-md-2 col-form-label">Personal</label>
             <div class="col-sm-12 col-md-10">
                 <select asp-for="personId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
-                    <optgroup label="Elegi una opcion" data-max-options="2">
+                    <optgroup label="Elige una opcion" data-max-options="2">
                         @foreach (var item in Model.personModels)
                         {
             <option value="@item.PersonId">@string.Concat(item.IdentityDocumentNumber + " - " + item.FatherLastName + " " + item.MotherLastName + ", " + item.Name)</option>
@@ -46,7 +46,7 @@
         <div class="form-group row">
             <label asp-for="Password" class="col-sm-12 col-md-2 col-form-label">Password</label>
             <div class="col-sm-12 col-md-10">
-                <input asp-for="Password" class="form-control" type="text" placeholder="Password">
+                <input asp-for="Password" class="form-control" placeholder="Password">
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
         </div>
@@ -54,7 +54,7 @@
         <div class="form-group row">
             <label asp-for="ConfirmPassword" class="col-sm-12 col-md-2 col-form-label">Confirmar Password</label>
             <div class="col-sm-12 col-md-10">
-                <input asp-for="ConfirmPassword" class="form-control" type="text" placeholder="Confirmar Password">
+                <input asp-for="ConfirmPassword" class="form-control"  placeholder="Confirmar Password">
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
         </div>

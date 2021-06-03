@@ -50,6 +50,7 @@ namespace SiGe
         public string UpdateCompanyCertificate => "Usp_Mai_U_Mai_CompanyCertificate";
         public string GetCompanyCertificateById => "Usp_Mai_S_Mai_CompanyCertificate_Get_By_CompanyCertificateId";
         public string GetAllCompanyCertificate => "Usp_Mai_S_Mai_CompanyCertificate";
+        public string GetCompanyCertificateByCompanyId => "Usp_Mai_S_Mai_CompanyCertificate_Get_By_CompanyId";
 
         // Mai_CompanyCredential
 
@@ -57,6 +58,7 @@ namespace SiGe
         public string UpdateCompanyCredential => "Usp_Mai_U_Mai_CompanyCredential";
         public string GetCompanyCredentialById => "Usp_Mai_S_Mai_CompanyCredential_Get_By_CompanyCredentialId";
         public string GetAllCompanyCredential => "Usp_Mai_S_Mai_CompanyCredential";
+        public string GetCompanyCredentialByCompanyId => "Usp_Mai_S_Mai_CompanyCredential_Get_By_CompanyId";
 
         // Mai_BranchOffice
 
@@ -67,13 +69,14 @@ namespace SiGe
         public string GetBranchOfficeByCompanyId => "Usp_Mai_S_Mai_BranchOffice_Get_By_CompanyId";
         public string GetBranchOfficeByCode => "Usp_Mai_S_Mai_BranchOffice_Get_By_Code";
 
-        // Mai_CustomerProvider
+        // Mai_Customer
 
-        public string AddCustomerProvider => "Usp_Mai_I_Mai_CustomerProvider";
-        public string UpdateCustomerProvider => "Usp_Mai_U_Mai_CustomerProvider";
-        public string GetCustomerProviderById => "Usp_Mai_S_Mai_CustomerProvider_Get_By_CustomerProviderId";
-        public string GetAllCustomerProvider => "Usp_Mai_S_Mai_CustomerProvider";
-        public string GetCustomerProviderByIdentityDocumentNumber => "Usp_Mai_S_Mai_CustomerProvider_Get_By_IdentityDocumentNumber";
+        public string AddCustomer => "Usp_Mai_I_Mai_Customer";
+        public string UpdateCustomer => "Usp_Mai_U_Mai_Customer";
+        public string GetCustomerById => "Usp_Mai_S_Mai_Customer_Get_By_CustomerId";
+        public string GetAllCustomer => "Usp_Mai_S_Mai_Customer";
+        public string GetCustomerByIdentityDocumentNumber => "Usp_Mai_S_Mai_Customer_Get_By_IdentityDocumentNumber";
+        public string GetCustomerByCompanyId => "Usp_Mai_S_Mai_Customer_Get_By_CompanyId";
 
         // Mai_MethodPayment
 
