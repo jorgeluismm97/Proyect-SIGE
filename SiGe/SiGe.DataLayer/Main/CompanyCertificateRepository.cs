@@ -120,5 +120,34 @@ namespace SiGe
 
             return ls;
         }
+
+        // Advanced
+
+        public async Task<List<CompanyCertificateModel>> GetByCompanyIdAsync(int companyId)
+        {
+            var ls = new List<CompanyCertificateModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<CompanyCertificateModel>(
+                                        _mainCommandText.GetCompanyCertificateByCompanyId,
+                                        new
+                                        {
+                                            CompanyId = companyId
+                                        },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
     }
 }

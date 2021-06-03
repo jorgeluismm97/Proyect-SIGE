@@ -7,6 +7,7 @@
         string GetProductById { get; }
         string GetAllProduct { get; }
         string GetProductByCompanyId { get; }
+        string GetProductByDescriptionCompanyId { get; }
         string GetProductByCode { get; }
     }
 }

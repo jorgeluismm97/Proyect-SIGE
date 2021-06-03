@@ -1,0 +1,81 @@
+﻿@model SiGe.CustomerViewModel ;
+
+@{ ViewData["Title"] = "Modificar"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Editar Clientes</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Cliente</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Datos de Cliente</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos de Cliente</h4>
+        </div>
+    </div>
+    <form asp-controller="Customer" asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="CustomerId" />
+
+        <div class="form-group row">
+            <label asp-for="IdentityDocumentTypeId" class="col-sm-12 col-md-2 col-form-label">Personal</label>
+            <div class="col-sm-12 col-md-10">
+                <select asp-for="IdentityDocumentTypeId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
+                    <optgroup label="Elige una opcion" data-max-options="2">
+                        @foreach (var item in Model.IdentityDocumentTypes)
+                        {
+            <option value="@item.IdentityDocumentTypeId">@string.Concat(item.Description)</option>
+}
+                    </optgroup>
+                </select>
+                <span asp-validation-for="IdentityDocumentTypeId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="IdentityDocumentNumber" class="col-sm-12 col-md-2 col-form-label">Nro. Documento</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="IdentityDocumentNumber" class="form-control" placeholder="Nro Documento" readonly>
+                <span asp-validation-for="IdentityDocumentNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="BusinessName" class="col-sm-12 col-md-2 col-form-label">Nombre o Razon Social</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="BusinessName" class="form-control" placeholder="Nombre o Razon Social">
+                <span asp-validation-for="BusinessName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Address" class="col-sm-12 col-md-2 col-form-label">Dirección</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Address" class="form-control" placeholder="Dirección">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Email" class="col-sm-12 col-md-2 col-form-label">Correo Electrónico</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="Email" class="form-control" placeholder="Correo Electrónico" type="email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+<!-- Default Basic Forms End -->

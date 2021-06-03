@@ -34,6 +34,12 @@ namespace SiGe.EbillingService
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
+
+            services.AddScoped<ICompanyCredentialRepository, CompanyCredentialRepository>();
+            services.AddScoped<ICompanyCredentialService, CompanyCredentialService>();
+            services.AddScoped<ICompanyCertificateRepository, CompanyCertificateRepository>();
+            services.AddScoped<ICompanyCertificateService, CompanyCertificateService>();
+
             services.AddScoped<IPaymentPlanRepository, PaymentPlanRepository>();
             services.AddScoped<IPaymentPlanService, PaymentPlanService>();
             services.AddScoped<IPaymentRepository, PaymentRepository>();
@@ -45,10 +51,25 @@ namespace SiGe.EbillingService
             services.AddScoped<IBranchOfficeService, BranchOfficeService>();
             services.AddScoped<IBranchOfficeRepository, BranchOfficeRepository>();
 
+            services.AddScoped<IDocumentTypeBranchOfficeSerieRepository, DocumentTypeBranchOfficeSerieRepository>();
+            services.AddScoped<IDocumentTypeBranchOfficeSerieService, DocumentTypeBranchOfficeSerieService>();
+            services.AddScoped<IDocumentTypeRepository, DocumentTypeRepository>();
+            services.AddScoped<IDocumentTypeService, DocumentTypeService>();
+            services.AddScoped<IDocumentService, DocumentService>();
+            services.AddScoped<IDocumentRepository, DocumentRepository>();
+
+            services.AddScoped<IMethodPaymentRepository, MethodPaymentRepository>();
+            services.AddScoped<IMethodPaymentService, MethodPaymentService>();
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<ICustomerService, CustomerService>();
+
             services.AddScoped<ISecurityCommandText, SecurityCommandText>();
             services.AddScoped<IMainCommandText, MainCommandText>();
             services.AddScoped<IPaymentCommandText, PaymentCommandText>();
             services.AddScoped<IProductCommandText, ProductCommandText> ();
+            services.AddScoped<IBillingCommandText, BillingCommandText>();
+
             services.AddMvc();
             services.AddSession();
             services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", config =>

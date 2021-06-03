@@ -147,6 +147,33 @@ namespace SiGe
             return ls;
         }
 
+        public async Task<List<ProductModel>> GetByDescriptionCompanyIdAsync(string description, int companyId)
+        {
+            var ls = new List<ProductModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<ProductModel>(
+                                        _productCommandText.GetProductByDescriptionCompanyId,
+                                        new { 
+                                            Description = description,
+                                            CompanyId = companyId 
+                                        },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
         public async Task<ProductModel> GetByCodeAsync(string code)
         {
             var rs = new ProductModel();

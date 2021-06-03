@@ -1,5 +1,66 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<SiGe.CompanyCredentialModel>
+
+@{ ViewData["Title"] = "Credenciales"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Credenciales de acceso a la SUNAT</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Credenciales</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Listado de Credenciales</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<p>
+    <a type="button" class="btn btn-success" asp-controller="CompanyCredential" asp-action="Create">Nuevo Credencial</a>
+</p>
+
+<!-- Simple Datatable start -->
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Listado de Credenciales</h4>
+    </div>
+    <div class="pb-20">
+        <table id="example" class="data-table table stripe hover nowrap">
+            <thead>
+                <tr>
+                    <th>Nombre de Usuario SUNAT</th>
+                    <th>Password SUNAT</th>
+                    <th class="datatable-nosort">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    string selectedRow = "";
+                    if (item.CompanyCredentialId == (int?)ViewData["CompanyCredentialId"])
+                    {
+                        selectedRow = "success";
+                    }
+
+    <tr class="@selectedRow">
+        <td>@Html.DisplayFor(modelItem => item.UserSOL)</td>
+        <td>@Html.DisplayFor(modelItem => item.PasswordSOL)</td>
+        <td>
+            <div class="dropdown2">
+                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                    <i class="dw dw-more"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.CompanyCredentialId"><i class="dw dw-edit2"></i>Editar</a>
+                </div>
+            </div>
+        </td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Simple Datatable End -->

@@ -8,7 +8,7 @@
         string UpdateDocument { get; }
         string GetDocumentById { get; }
         string GetAllDocument { get; }
-        string GetDocumentMainView { get; }
+        string GetDocumentByCompanyId { get; }
         string GetDocumentSearchView { get;  }
         string GetDocumentByDocumentTypeIdSerieNumber { get; }
         string GetDocumentNewNumber { get; }
@@ -34,6 +34,7 @@
         string UpdateDocumentTypeBranchOfficeSerie { get; }
         string GetDocumentTypeBranchOfficeSerieById { get; }
         string GetAllDocumentTypeBranchOfficeSerie { get; }
+        string GetDocumentTypeBranchOfficeSerieByCompanyId { get;  }
         string GetDocumentTypeBranchOfficeSerieMainView { get;  }
         string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeIdSerie { get; }
         string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeId { get; }

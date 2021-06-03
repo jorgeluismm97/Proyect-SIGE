@@ -34,5 +34,13 @@ namespace SiGe
             return await _companyCertificateRepository.GetAllAsync();
         }
 
+        // Advanced
+
+
+        public async Task<List<CompanyCertificateModel>> GetByCompanyIdAsync(int companyId)
+        {
+            return await _companyCertificateRepository.GetByCompanyIdAsync(companyId);
+        }
+
     }
 }

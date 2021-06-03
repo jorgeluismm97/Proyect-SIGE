@@ -105,7 +105,7 @@
                                 <ul class="submenu">
                                     <li><a href="@Url.Action("Index", "Company")">Datos de Empresa</a></li>
                                     <li><a href="@Url.Action("Index", "BranchOffice")">Lista de Sucursales</a></li>
-                                    <li><a href="#">Lista de Series</a></li>
+                                    <li><a href="@Url.Action("Index", "Serie")">Lista de Series</a></li>
                                     <li><a class="nav-link" href="@Url.Action("Index", "Person")">Lista del Personal</a></li>
                                     <li><a href="@Url.Action("Index", "User")">Lista de Usuarios</a></li>
                                 </ul>
@@ -128,8 +128,8 @@
                                 <span><img src="/img/reportpayme.svg" width="20"></span>&nbsp&nbsp<span class="mtext">Facturacion</span>
                             </a>
                             <ul class="submenu">
-                                <li><a href="#">Lista de Clientes</a></li>
-                                <li><a href="#">Emision de Comprobantes</a></li>
+                                <li><a href="@Url.Action("Index", "Customer")">Lista de Clientes</a></li>
+                                <li><a href="@Url.Action("Index", "Document")">Emision de Comprobantes</a></li>
                             </ul>
                         </li>
 
@@ -175,7 +175,7 @@
     <!-- Datatable Setting js -->
     <script src="~/js/datatable-setting.js"></script>
 
-    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 

@@ -41,6 +41,11 @@ namespace SiGe
             return await _productRepository.GetByCompanyIdAsync(companyId);
         }
 
+        public async Task<List<ProductModel>> GetByDescriptionCompanyIdAsync(string description, int companyId)
+        {
+            return await _productRepository.GetByDescriptionCompanyIdAsync(description,companyId);
+        }
+
         public async Task<ProductModel> GetByCodeAsync(string code)
         {
             return await _productRepository.GetByCodeAsync(code);
