@@ -28,7 +28,7 @@
         <h4 class="text-blue h4">Listado del Personal</h4>
     </div>
     <div class="pb-20">
-        <table id="example" class="data-table table stripe hover nowrap">
+        <table class="data-table table stripe hover nowrap">
             <thead>
                 <tr>
                     <th class="table-plus datatable-nosort">DNI</th>
@@ -47,13 +47,13 @@
                         selectedRow = "success";
                     }
 
-                <tr class="@selectedRow">
+                 <tr class="@selectedRow">
                     <td class="table-plus"> @Html.DisplayFor(modelItem => item.IdentityDocumentNumber)</td>
                     <td>@Html.DisplayFor(modelItem => item.FatherLastName)</td>
                     <td>@Html.DisplayFor(modelItem => item.MotherLastName)</td>
                     <td>@Html.DisplayFor(modelItem => item.Name)</td>
                     <td>
-                        <div class="dropdown2">
+                        <div class="dropdown">
                             <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                 <i class="dw dw-more"></i>
                             </a>

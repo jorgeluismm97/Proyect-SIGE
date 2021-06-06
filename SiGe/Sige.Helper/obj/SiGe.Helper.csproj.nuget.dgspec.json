@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {}
+    "C:\\Users\\PC\\Desktop\\Proyecto\\Proyecto SIGE - Codigo\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
+    "C:\\Users\\PC\\Desktop\\Proyecto\\Proyecto SIGE - Codigo\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\Proyecto\\Proyecto SIGE - Codigo\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
         "projectName": "SiGe.Helper",
-        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
-        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Desktop\\Proyecto\\Proyecto SIGE - Codigo\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\Proyecto\\Proyecto SIGE - Codigo\\SiGe\\Sige.Helper\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
