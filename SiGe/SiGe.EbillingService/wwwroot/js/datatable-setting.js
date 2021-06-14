@@ -1,5 +1,6 @@
 $('document').ready(function(){
 	$('.data-table').DataTable({
+		"bDestroy": true,
 		scrollCollapse: true,
 		autoWidth: false,
 		responsive: true,
@@ -9,6 +10,7 @@ $('document').ready(function(){
 		}],
 		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 		"language": {
+			"url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json",
 			"info": "_START_-_END_ of _TOTAL_ entries",
 			searchPlaceholder: "Buscar",
 			paginate: {
@@ -93,5 +95,16 @@ $('document').ready(function(){
 				el.indeterminate = true;
 			}
 		}
+	});
+});
+
+$(document).ready(function () {
+	$('#example').DataTable({
+		"bDestroy": true,
+		"language": {
+			"url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+
+		}
+
 	});
 });

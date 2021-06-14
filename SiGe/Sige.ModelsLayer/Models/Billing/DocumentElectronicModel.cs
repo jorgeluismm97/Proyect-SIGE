@@ -13,6 +13,5 @@ namespace SiGe
         public string NumberTicketCDR { get; set; }
         public string StringQR { get; set; }
         public string FileName {get; set; }
-        public bool IsSent { get; set; }
     }
 }

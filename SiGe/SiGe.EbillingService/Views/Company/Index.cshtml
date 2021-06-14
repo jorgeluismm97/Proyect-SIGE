@@ -20,10 +20,9 @@
 </div>
 @if (Context.Session.GetInt32("IdentityAction") == 1)
 {
-    <p>
-        <a type="button" class="btn btn-success" asp-controller="Company" asp-action="Create">Nueva Empresa</a>
-    </p>
-}
+<p>
+    <a type="button" class="btn btn-success" asp-controller="Company" asp-action="Create">Nueva Empresa</a>
+</p>}
 
 <!-- Simple Datatable start -->
 <div class="card-box mb-30">
@@ -31,11 +30,11 @@
         <h4 class="text-blue h4">Lista de Datos</h4>
     </div>
     <div class="pb-20">
-        <table id="example" class="data-table table stripe hover nowrap">
+        <table class="data-table table stripe hover nowrap">
             <thead>
                 <tr>
-                    <th >Numero de Documento de Identidad</th>
-                    <th class="table-plus datatable-nosort">Empresa</th>
+                    <th class="table-plus datatable-nosort">Numero de Documento de Identidad</th>
+                    <th>Empresa</th>
                     <th class="datatable-nosort">Accion</th>
                 </tr>
             </thead>
@@ -47,44 +46,46 @@
                     {
                         selectedRow = "success";
                     }
-
-    <tr class="@selectedRow">
-        <td class="table-plus"> @Html.DisplayFor(modelItem => item.companyModel.IdentityDocumentNumber)</td>
-        <td>@Html.DisplayFor(modelItem => item.companyModel.BusinessName)</td>
-        <td>
-            <div class="dropdown2">
-                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                    <i class="dw dw-more"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.companyModel.CompanyId"><i class="dw dw-edit2"></i>Editar</a>
-                    @if (Context.Session.GetInt32("IdentityAction") == 1)
+                 <tr class="@selectedRow">
+                    <td class="table-plus"> @Html.DisplayFor(modelItem => item.companyModel.IdentityDocumentNumber)</td>
+                    <td>@Html.DisplayFor(modelItem => item.companyModel.BusinessName)</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                <i class="dw dw-more"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.companyModel.CompanyId"><i class="dw dw-edit2"></i>Editar</a>
+                                @if (Context.Session.GetInt32("IdentityAction") == 1)
+                                {
+                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.companyModel.CompanyId"><i class="dw dw-delete-3"></i>Eliminar</a>
+                                    <a class="dropdown-item" asp-action="Create" asp-controller="Payment" asp-route-id="@item.companyModel.CompanyId"><i class="dw dw-eye"></i>Suscripción</a> }
+                                else
+                                {
+                    <a class="dropdown-item" asp-action="Index" asp-controller="CompanyCredential"><i class="dw dw-delete-3"></i>Credenciales</a>
+                                    <a class="dropdown-item" asp-action="Index" asp-controller="CompanyCertificate"><i class="dw dw-eye"></i>Certificados</a>}
+                            </div>
+                        </div>
+                    </td>
+                 </tr>
+                 foreach (var payment in item.paymentModels)
                     {
-                        <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.companyModel.CompanyId"><i class="dw dw-delete-3"></i>Eliminar</a>
-                        <a class="dropdown-item" asp-action="Create" asp-controller="Payment" asp-route-id="@item.companyModel.CompanyId"><i class="dw dw-eye"></i>Suscripción</a> }
-                    else
-                    {
-                        <a class="dropdown-item" asp-action="Index" asp-controller="CompanyCredential"><i class="dw dw-delete-3"></i>Credenciales</a>
-                        <a class="dropdown-item" asp-action="Index" asp-controller="CompanyCertificate"><i class="dw dw-eye"></i>Certificados</a>}
-                </div>
-            </div>
-        </td>
-    </tr>
- foreach (var payment in item.paymentModels)
-    {
-<tr class="@selectedRow">
-    <td>
-    </td>
-    <td>
-        Suscripción activa del @Html.DisplayFor(modelItem => payment.StartingDate) al @Html.DisplayFor(modelItem => payment.EndingDate.Date)
-    </td>
-    <td>
-    </td>
-</tr>
-}
+                        <tr class="@selectedRow">
+                            <td>
 
-}
+                            </td>
+                            <td>
+                                Suscripción activa del @Html.DisplayFor(modelItem => payment.StartingDate) al @Html.DisplayFor(modelItem => payment.EndingDate.Date)
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        
+                    }
+                }
             </tbody>
         </table>
     </div>
-</div> <!-- Simple Datatable End -->
+</div>
+<!-- Simple Datatable End -->

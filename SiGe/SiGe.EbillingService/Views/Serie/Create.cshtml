@@ -35,7 +35,7 @@
                     <optgroup label="Elige una opcion" data-max-options="2">
                         @foreach (var item in Model.DocumentTypes)
                         {
-            <option value="@item.DocumentTypeId">@string.Concat(item.Description)</option>}
+                            <option value="@item.DocumentTypeId">@string.Concat(item.Description)</option>}
                     </optgroup>
                 </select>
                 <span asp-validation-for="DocumentTypeId" class="text-danger"></span>

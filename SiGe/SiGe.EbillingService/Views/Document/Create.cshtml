@@ -43,21 +43,22 @@
                 </div>
             </div>
 
-            <div class="form-group row col-md-5" ">
-                <label asp-for="Serie" class="col-sm-6 col-md-3 col-form-label">Serie</label>
+            <div class="form-group row col-md-5" >
+                <label asp-for="DocumentTypeBranchOfficeSerieId" class="col-sm-6 col-md-3 col-form-label">Serie</label>
                 <div class="col-sm-12 col-md-9">
-                    <select asp-for="Serie" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
+                    <select asp-for="DocumentTypeBranchOfficeSerieId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
                         <optgroup label="Elige una opcion" data-max-options="2">
                             @foreach (var item in Model.Series)
                             {
-                <option value="@item.DocumentTypeBranchOfficeSerieId">@string.Concat(item.Serie)</option>}
+                                <option value="@item.DocumentTypeBranchOfficeSerieId">@string.Concat(item.Serie)</option>
+                            }
                         </optgroup>
                     </select>
-                    <span asp-validation-for="Serie" class="text-danger"></span>
+                    <span asp-validation-for="DocumentTypeBranchOfficeSerieId" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="form-group row col-md-3" ">
+            <div class="form-group row col-md-3" >
                 <label asp-for="Number" class="col-sm-6 col-md-4 col-form-label">Número</label>
                 <div class="col-sm-12 col-md-8">
                     <input asp-for="Number" class="form-control" placeholder="Serie" type="text">
@@ -140,7 +141,7 @@
                             <th>Accion</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="DocumentList">
                         @foreach (var item in Model.Details)
                         {
                             string selectedRow = "";
@@ -149,24 +150,24 @@
                                 selectedRow = "success";
                             }
 
-            <tr class="@selectedRow">
-                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
-                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Description)</td>
-                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Quantity)</td>
-                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Price())</td>
-                <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                <td>
-                    <div class="dropdown2">
-                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                            <i class="dw dw-more"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Quitar</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-}
+                        <tr class="@selectedRow">
+                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Description)</td>
+                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Quantity)</td>
+                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Price())</td>
+                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                            <td>
+                                <div class="dropdown2">
+                                    <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                        <i class="dw dw-more"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Quitar</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+            }
                     </tbody>
                 </table>
 
@@ -181,7 +182,7 @@
                 <div class="form-group row">
                     <label asp-for="SubTotal" class="col-sm-12 col-md-4 col-form-label">SubTotal</label>
                     <div class="col-sm-12 col-md-8">
-                        <input asp-for="SubTotal" class="form-control" type="text">
+                        <input asp-for="SubTotal" class="form-control" style="text-align:right;" type="number" value="0.00" readonly>
                         <span asp-validation-for="SubTotal" class="text-danger"></span>
                     </div>
                 </div>
@@ -189,7 +190,7 @@
                 <div class="form-group row">
                     <label asp-for="Tax" class="col-sm-12 col-md-4 col-form-label">IGV</label>
                     <div class="col-sm-12 col-md-8">
-                        <input asp-for="Tax" class="form-control" type="text">
+                        <input asp-for="Tax" class="form-control" style="text-align:right;"  type="number" value="0.00" readonly>
                         <span asp-validation-for="Tax" class="text-danger"></span>
                     </div>
                 </div>
@@ -197,7 +198,7 @@
                 <div class="form-group row">
                     <label asp-for="Total" class="col-sm-12 col-md-4 col-form-label">Total</label>
                     <div class="col-sm-12 col-md-8">
-                        <input asp-for="Total" class="form-control" type="text">
+                        <input asp-for="Total" class="form-control right" style="text-align:right;"  type="number" value="0.00" readonly>
                         <span asp-validation-for="Total" class="text-danger"></span>
                     </div>
                 </div>
@@ -236,7 +237,7 @@
                                     <th class="datatable-nosort">Accion</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="ProductList">
                                 @foreach (var item in Model.Products)
                                 {
                                     var i = Model.Products.IndexOf(item);
@@ -245,24 +246,26 @@
                                     {
                                         selectedRow = "success";
                                     }
-                    @Html.Hidden("Products[" + i + "].ProductId", item.ProductId)
+                                    @Html.Hidden("Products[" + i + "].ProductId", item.ProductId)
                                     @Html.Hidden("Products[" + i + "].Code", item.Code)
-                                                    @Html.Hidden("Products[" + i + "].Description", item.Description)
+                                    @Html.Hidden("Products[" + i + "].Description", item.Description)
 
-                                                                    <tr class="@selectedRow">
-                                                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
-                                                                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                                                                        <td>
-                                                                            <div class="dropdown2">
-                                                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                                                    <i class="dw dw-more"></i>
-                                                                                </a>
-                                                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>}
+                                    <tr class="@selectedRow">
+                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                        <td>
+                                            <div class="dropdown2">
+                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                    <i class="dw dw-more"></i>
+                                                </a>*@
+                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                </div>*@
+
+                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId"  />
+                                            </div>
+                                        </td>
+                                    </tr>}
                             </tbody>
                         </table>
                     </div>
@@ -302,7 +305,7 @@
                                     <th class="datatable-nosort">Accion</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="CustomerList">
                                 @foreach (var item in Model.Customers)
                                 {
                                     var i = Model.Customers.IndexOf(item);
@@ -321,14 +324,14 @@
                                                                                         <td>@Html.DisplayFor(modelItem => item.Address)</td>
                                                                                         <td>
                                                                                             <div class="dropdown2">
-                                                                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                                                                                     <i class="dw dw-more"></i>
-                                                                                                </a>
+                                                                                                </a>*@
                                                                                                 @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                                                                                         <a class="dropdown-item" asp-route-id="@item.CustomerId"><i class="dw dw-edit2"></i>Seleccionar</a>
                                                                                                     </div>*@
 
-                                                                                                <input type="submit" value="Seleccionar" class="btn btn-primary" name="action" id="Seleccionar" />
+                                                                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.CustomerId" />
                                                                                             </div>
                                                                                         </td>
                                                                                     </tr>}
@@ -346,9 +349,9 @@
 </div>
 @section Scripts{
    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script>
+   <script>
         $(document).ready(function () {
-            $("#Seleccionar").click(function () {
+            @*$("#Seleccionar").click(function () {
                 $.ajax({
                 type: "POST",
                 url: "@Url.Action("AddCustomer")",
@@ -365,7 +368,105 @@
                     alert(error);
                 }
                 })
-            })
+            })*@
+
+            $(".CustomerList").on("click", ".select", function (event) {
+            event.preventDefault();
+            var CustomerId = $(this).attr('data-id');
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddCustomer")",
+                                data: { id: CustomerId},
+                dataType: "json",
+                success: function (msg) {
+                    $("#Customer_CustomerId").val(msg.customerId);
+                    $("#Customer_IdentityDocumentNumber").val(msg.identityDocumentNumber);
+                    $("#Customer_BusinessName").val(msg.businessName);
+                    $("#Customer_Address").val(msg.address);
+                    console.log(msg);
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+                })
+            });
+
+            $(".ProductList").on("click", ".select", function (event) {
+                event.preventDefault();
+                var productId = $(this).attr('data-id');
+                let indicator = true;
+                $(".DocumentList input").each(function () {
+                    if ($(this).attr("id").indexOf("ProductId")>=0)
+                    {
+                        var _productId = document.getElementById($(this).attr("id")).value;
+                        if (productId === _productId) {
+                            alert("Ya esta registrado");
+                            indicator = false;
+                        }
+                    }
+                });
+
+                if (indicator) {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("AddProduct")",
+                        data: { id: productId },
+                        dataType: "json",
+                        success: function (msg) {
+
+                            var row = "  <tr>" +
+                                "<input class='form-control' type='hidden' id = 'ProductId" + msg.productId +"'  name ='Details[0].ProductId' value ='" + msg.productId +"'>"+
+                                "<td class='table-plus'><input class='form-control' id = 'Code" + msg.productId +"' type='hidden' name ='Details[0].Code' value ='" + msg.code + "'>" + msg.code + "</td>" +
+                                "<td><input class='form-control' id = 'Description" + msg.productId +"'type='hidden' name ='Details[0].Description' value ='" + msg.description + "'>" + msg.description + "</td>" +
+                                "<td><input class='form-control' id = 'Quantity" + msg.productId + "' style='text-align: right;'  type='number' name ='Details[0].Quantity' oninput=Quantity(id) value = 1></td>" +
+                                "<td><input class='form-control' id = 'UnitPrice" + msg.productId + "' style='text-align: right;' type='number' name ='Details[0].UnitPrice' oninput=UnitPrice(id) value = 0></td>" +
+                                "<td><input class='form-control' id = 'TotalPrice" + msg.productId + "' style='text-align: right;' type='number' name ='Details[0].Price()' value = 0 readonly></td>" +
+                                "<td>" +
+                                "<input type='submit' value='Quitar' class='btn btn-danger select' name='action' id='Seleccionar' data-id='" + msg.producId + "'  />" +
+                                "</div>" +
+                                "</td>" +
+                                "</tr>";
+                            $(".DocumentList").append(row);
+                            console.log(msg);
+                        },
+                        error: function (req, status, error) {
+                            alert(error);
+                        }
+                    })
+                }
+            });
+            
+
+
         })
-    </script>
+
+       function Quantity(id) {
+           var quantity = document.getElementById(id).value;
+           var unitPrice = document.getElementById('UnitPrice' + id.replace('Quantity', '')).value;
+           document.getElementById('TotalPrice' + id.replace('Quantity', '')).value = quantity * unitPrice;
+           Sum();
+       }
+       function UnitPrice(id) {
+           var unitPrice = document.getElementById(id).value;
+           var quantity = document.getElementById('Quantity' + id.replace('UnitPrice', '')).value;
+           document.getElementById('TotalPrice' + id.replace('UnitPrice', '')).value = quantity * unitPrice;
+
+           Sum();
+       }
+
+       function Sum() {
+           var elements = document.querySelectorAll(".DocumentList input[type=number]")
+           var sum = 0;
+           for (var i = 0, element; element = elements[i++];) {
+               if (element.id.indexOf("TotalPrice") >= 0)
+                   sum = sum + parseFloat(document.getElementById(element.id).value);
+           }
+           var subTotal = sum / 1.18;
+           var tax = sum - subTotal;
+
+           document.getElementById('SubTotal').value = subTotal.toFixed(2);;
+           document.getElementById('Tax').value = tax.toFixed(2);;
+           document.getElementById('Total').value = sum.toFixed(2);;
+       }
+   </script>
 }

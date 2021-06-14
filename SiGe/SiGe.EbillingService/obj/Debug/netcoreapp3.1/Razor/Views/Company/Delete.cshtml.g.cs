@@ -20,7 +20,7 @@ using SiGe.EbillingService;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"25bd8c133c041409fa8ee3c05684d76724f26c5c", @"/Views/Company/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6bacf5201e04d16434c3b32238922fb080c530f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d73129199c82d3465c108f8a85c0f322abc554ff", @"/Views/_ViewImports.cshtml")]
     public class Views_Company_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<SiGe.CompanyModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
