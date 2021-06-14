@@ -19,8 +19,8 @@ namespace SiGe
         public List<DocumentTypeModel> DocumentTypes { get; set; }
         public int DocumentTypeId { get; set; }
         public List<SerieViewModel> Series { get; set; }
-        public string Serie { get; set; }
-        public int Number { get; set; }
+        public int DocumentTypeBranchOfficeSerieId { get; set; }
+        public string Number { get; set; }
         public DateTime IssueDate { get; set; }
         public CustomerModel Customer { get; set; }
         public List<MethodPaymentModel> MethodPayments { get; set; }
