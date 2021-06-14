@@ -58,6 +58,14 @@ namespace SiGe.EbillingService
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
 
+            services.AddScoped<IDocumentDetailRepository, DocumentDetailRepository>();
+            services.AddScoped<IDocumentDetailService, DocumentDetailService>();
+            services.AddScoped<IDocumentElectronicRepository, DocumentElectronicRepository>();
+            services.AddScoped<IDocumentElectronicService, DocumentElectronicService>();
+
+            services.AddScoped<IDocumentDetailService, DocumentDetailService>();
+            services.AddScoped<IDocumentDetailRepository, DocumentDetailRepository>();
+
             services.AddScoped<IMethodPaymentRepository, MethodPaymentRepository>();
             services.AddScoped<IMethodPaymentService, MethodPaymentService>();
 
