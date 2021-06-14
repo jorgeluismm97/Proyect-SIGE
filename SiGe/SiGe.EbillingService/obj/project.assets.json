@@ -6792,19 +6792,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\luis_\\.nuget\\packages\\": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingService\\SiGe.EbillingService.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.EbillingService\\SiGe.EbillingService.csproj",
       "projectName": "SiGe.EbillingService",
-      "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingService\\SiGe.EbillingService.csproj",
-      "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.EbillingService\\obj\\",
+      "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.EbillingService\\SiGe.EbillingService.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.EbillingService\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6818,8 +6822,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj": {
-              "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj"
+            "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.BusinessLayer\\SiGe.BusinessLayer.csproj"
             }
           }
         }
@@ -6861,7 +6865,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

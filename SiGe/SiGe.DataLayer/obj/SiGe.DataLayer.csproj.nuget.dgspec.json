@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj": {}
+    "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj": {
+    "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj",
         "projectName": "SiGe.DataLayer",
-        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj",
-        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\SiGe.DataLayer\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.DataLayer\\SiGe.DataLayer.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\SiGe.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +31,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
-                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj"
+              "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
+                "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.Helper\\SiGe.Helper.csproj"
               },
-              "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
-                "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj"
+              "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
+                "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj"
               }
             }
           }
@@ -75,21 +78,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
+    "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.Helper\\SiGe.Helper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
         "projectName": "SiGe.Helper",
-        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
-        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.Helper\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.Helper\\SiGe.Helper.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.Helper\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,21 +135,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
+    "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
         "projectName": "SiGe.ModelsLayer",
-        "projectPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
-        "packagesPath": "C:\\Users\\luis_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luis_\\Documents\\Visual Studio 2019\\Projects\\SiGe\\Sige.ModelsLayer\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.ModelsLayer\\SiGe.ModelsLayer.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\git sige\\Proyect-SIGE\\SiGe\\Sige.ModelsLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\luis_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -197,7 +206,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
