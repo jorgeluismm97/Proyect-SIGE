@@ -47,8 +47,8 @@
             <div class="form-group row col-md-5">
                 <label asp-for="DocumentTypeBranchOfficeSerieId" class="col-sm-6 col-md-3 col-form-label">Serie</label>
                 <div class="col-sm-12 col-md-9">
-                    <select asp-for="DocumentTypeBranchOfficeSerieId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
-                        <optgroup label="Elige una opcion" data-max-options="2">
+                    <select asp-for="DocumentTypeBranchOfficeSerieId" class="form-control" >
+                        <optgroup label="Elige una opcion">
                             @foreach (var item in Model.Series)
                             {
                                 <option value="@item.DocumentTypeBranchOfficeSerieId">@string.Concat(item.Serie)</option>
@@ -62,7 +62,7 @@
             <div class="form-group row col-md-3">
                 <label asp-for="Number" class="col-sm-6 col-md-4 col-form-label">Número</label>
                 <div class="col-sm-12 col-md-8">
-                    <input asp-for="Number" class="form-control" placeholder="Serie" type="text">
+                    <input asp-for="Number" class="form-control" placeholder="Número" type="text" readonly>
                     <span asp-validation-for="Number" class="text-danger"></span>
                 </div>
             </div>
@@ -102,7 +102,7 @@
             <div class="form-group row col-md-5">
                 <label asp-for="IssueDate" class="col-sm-12 col-md-3 col-form-label">Fecha de Emis.</label>
                 <div class="col-sm-12 col-md-9">
-                    <input asp-for="IssueDate" class="form-control" placeholder="Serie" type="date">
+                    <input asp-for="IssueDate"   class="form-control" placeholder="Fecha" type="date" >
                     <span asp-validation-for="IssueDate" class="text-danger"></span>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                 <h4 class="text-blue h4">Listado del Productos</h4>
             </div>
             <div class="pb-20">
-                <table id="example" class="data-table table stripe hover nowrap">
+                <table id="example" class="table stripe hover nowrap">
                     <thead>
                         <tr>
                             <th>Codigo</th>
@@ -353,26 +353,8 @@
 </div>
 @section Scripts{
     @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
-    <script>
+<script>
         $(document).ready(function () {
-            @*$("#Seleccionar").click(function () {
-                $.ajax({
-                type: "POST",
-                url: "@Url.Action("AddCustomer")",
-                data: {id: 1},
-                dataType: "json",
-                success: function (msg) {
-                    $("#Customer_CustomerId").val(msg.customerId);
-                    $("#Customer_IdentityDocumentNumber").val(msg.identityDocumentNumber);
-                    $("#Customer_BusinessName").val(msg.businessName);
-                    $("#Customer_Address").val(msg.address);
-                    console.log(msg);
-                },
-                error: function (req, status, error) {
-                    alert(error);
-                }
-                })
-            })*@
 
             $(".CustomerList").on("click", ".select", function (event) {
             event.preventDefault();
@@ -440,8 +422,62 @@
                 }
             });
 
+            $('#DocumentTypeId').on('change', function () {
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetSerie")",
+                data: { id: this.value},
+                dataType: "json",
+                    success: function (msg) {
+                        $("#DocumentTypeBranchOfficeSerieId optgroup").empty();
+                        $.each(msg, function (index, msg) {
+
+                            $('<option>', {
+                                value: msg.documentTypeBranchOfficeSerieId,
+                                text: msg.serie
+                            }).appendTo("#DocumentTypeBranchOfficeSerieId optgroup");
+                        });
 
 
+                         $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetNumber")",
+                            data: { id: $('#DocumentTypeId').val(), serie: $("#DocumentTypeBranchOfficeSerieId option:selected").text()},
+                        dataType: "json",
+                            success: function (msg) {
+                                console.log(msg);
+                                $("#Number").val( msg);
+
+                        },
+                        error: function (req, status, error) {
+                            alert(error);
+                        }
+                        })
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+                })
+            });
+
+
+            $('#DocumentTypeBranchOfficeSerieId ').on('change', function () {
+                //alert(this.value);
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetNumber")",
+                    data: { id: $('#DocumentTypeId').val(), serie: $("#DocumentTypeBranchOfficeSerieId option:selected").text()},
+                dataType: "json",
+                    success: function (msg) {
+                        console.log(msg);
+                        $("#Number").val( msg);
+
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+                })
+            });
         })
 
        function Quantity(id) {
@@ -472,5 +508,5 @@
            document.getElementById('Tax').value = tax.toFixed(2);;
            document.getElementById('Total').value = sum.toFixed(2);;
        }
-    </script>
+</script>
 }

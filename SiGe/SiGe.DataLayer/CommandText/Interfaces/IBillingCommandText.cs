@@ -34,7 +34,8 @@
         string UpdateDocumentTypeBranchOfficeSerie { get; }
         string GetDocumentTypeBranchOfficeSerieById { get; }
         string GetAllDocumentTypeBranchOfficeSerie { get; }
-        string GetDocumentTypeBranchOfficeSerieByCompanyId { get;  }
+        string GetDocumentTypeBranchOfficeSerieByCompanyId { get; }
+        string GetDocumentTypeBranchOfficeSerieByCompanyIdDocumentTypeId { get;  }
         string GetDocumentTypeBranchOfficeSerieMainView { get;  }
         string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeIdSerie { get; }
         string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeId { get; }

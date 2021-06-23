@@ -40,5 +40,10 @@ namespace SiGe
             return await _documentTypeBranchOfficeSerieRepository.GetByCompanyIdAsync(companyId);
         }
 
+        public async Task<List<SerieViewModel>> GetByCompanyIdDocumentTypeIdAsync(int companyId, int documentTypeId)
+        {
+            return await _documentTypeBranchOfficeSerieRepository.GetByCompanyIdDocumentTypeIdAsync(companyId, documentTypeId);
+        }
+
     }
 }
