@@ -6,5 +6,6 @@ namespace SiGe
     public interface IDocumentRepository : IRepository<DocumentModel>
     {
         Task<List<DocumentViewModel>> GetByCompanyIdAsync(int companyId);
+        Task<int> GetNewNumberByDocumentTypeIdSerieIndicatorAsync(int companyId, int documentTypeId, string serie);
     }
 }
