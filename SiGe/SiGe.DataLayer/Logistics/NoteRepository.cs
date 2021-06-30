@@ -120,5 +120,106 @@ namespace SiGe
 
             return ls;
         }
+
+        // Advanced
+
+        public async Task<List<NoteViewModel>> GetByCompanyIdActionTypeAsync(int companyId, int actionType)
+        {
+            var ls = new List<NoteViewModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<NoteViewModel>(
+                                        _logisticsCommandText.GetNoteByCompanyIdActionType,
+                                        new
+                                        {
+                                            CompanyId = companyId,
+                                            ActionType = actionType
+                                        },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
+        public async Task<int> GetNewNumberByActionTypeAsync(int actionType)
+        {
+            int number = 0;
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    number = await connection.ExecuteScalarAsync<int>(
+                                            _logisticsCommandText.GetNoteNewNumber,
+                                            new
+                                            {
+                                                ActionType = actionType
+                                            },
+                                            commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+            return number;
+        }
+
+        public async Task<List<ResulViewModel>> GetNoteBalanceKardexSimpleAsync(int productId, int branchOfficeId)
+        {
+            var ls = new List<ResulViewModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var  rs = await connection.QueryAsync<ResulViewModel>(
+                                        _logisticsCommandText.GetNoteBalanceKardexSimple,
+                                        new { ProductId = productId, BranchOfficeId = branchOfficeId },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
+        public async Task<List<ResulViewModel>> GetNoteKardexSimpleAsync(int productId, int branchOfficeId)
+        {
+            var ls = new List<ResulViewModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<ResulViewModel>(
+                                        _logisticsCommandText.GetNoteKardexSimple,
+                                        new { ProductId = productId, BranchOfficeId = branchOfficeId },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
     }
 }

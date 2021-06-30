@@ -42,15 +42,6 @@ C:\Users\PC\Desktop\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.Assembl
 C:\Users\PC\Desktop\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.csproj.CoreCompileInputs.cache
 C:\Users\PC\Desktop\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.dll
 C:\Users\PC\Desktop\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.deps.json
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.dll
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.AssemblyInfoInputs.cache
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.AssemblyInfo.cs
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.csproj.CoreCompileInputs.cache
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.dll
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.csproj.AssemblyReference.cache
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.deps.json
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.dll
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.pdb
@@ -60,3 +51,12 @@ C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\obj\Debug\netcoreapp3
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.csproj.CoreCompileInputs.cache
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.dll
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.deps.json
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\bin\Debug\netcoreapp3.1\SiGe.Helper.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.csproj.AssemblyReference.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.AssemblyInfoInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.AssemblyInfo.cs
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.csproj.CoreCompileInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\Sige.Helper\obj\Debug\netcoreapp3.1\SiGe.Helper.pdb

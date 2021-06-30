@@ -137,5 +137,17 @@ namespace SiGe.Controllers
             var product = await _productService.GetByDescriptionCompanyIdAsync(description, companyId);
             return Json(product);
         }
+
+
+        ////POST: Serie/Create
+        [Authorize]
+        [HttpPost]
+        public async Task<JsonResult> AddProduct(int id)
+        {
+            var x = await _productService.GetByIdAsync(id);
+
+            return Json(x);
+
+        }
     }
 }

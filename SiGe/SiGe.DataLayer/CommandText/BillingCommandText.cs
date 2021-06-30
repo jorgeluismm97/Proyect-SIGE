@@ -27,6 +27,7 @@
         public string UpdateDocumentElectronic => "";
         public string GetDocumentElectronicById => "";
         public string GetAllDocumentElectronic => "";
+        public string GetDocumentElectronicByDocumentId => "Usp_Bil_S_Bil_DocumentElectronic_Get_By_DocumentId";
 
         // Bil_DocumentTypeBranchOfficeSerie
 

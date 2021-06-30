@@ -33,5 +33,29 @@ namespace SiGe
         {
             return await _noteRepository.GetAllAsync();
         }
+
+        // Advanced
+
+        public async Task<List<NoteViewModel>> GetByCompanyIdActionTypeAsync(int companyId, int actionType)
+        {
+            return await _noteRepository.GetByCompanyIdActionTypeAsync(companyId, actionType);
+        }
+
+        public async Task<int> GetNewNumberByActionTypeAsync(int actionType)
+        {
+            return await _noteRepository.GetNewNumberByActionTypeAsync(actionType);
+        }
+
+        public async Task<List<ResulViewModel>> GetNoteBalanceKardexSimpleAsync(int productId, int branchOfficeId)
+        {
+            return await _noteRepository.GetNoteBalanceKardexSimpleAsync(productId, branchOfficeId);
+        }
+
+        public async Task<List<ResulViewModel>> GetNoteKardexSimpleAsync(int productId, int branchOfficeId)
+        {
+            return await _noteRepository.GetNoteKardexSimpleAsync(productId, branchOfficeId);
+        }
+
+
     }
 }
