@@ -36,18 +36,19 @@
                         <optgroup label="Elige una opcion" data-max-options="2">
                             @foreach (var item in Model.DocumentTypes)
                             {
-                <option value="@item.DocumentTypeId">@string.Concat(item.Description)</option>}
+                                <option value="@item.DocumentTypeId">@string.Concat(item.Description)</option>
+}
                         </optgroup>
                     </select>
                     <span asp-validation-for="DocumentTypeId" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="form-group row col-md-5" >
+            <div class="form-group row col-md-5">
                 <label asp-for="DocumentTypeBranchOfficeSerieId" class="col-sm-6 col-md-3 col-form-label">Serie</label>
                 <div class="col-sm-12 col-md-9">
-                    <select asp-for="DocumentTypeBranchOfficeSerieId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
-                        <optgroup label="Elige una opcion" data-max-options="2">
+                    <select asp-for="DocumentTypeBranchOfficeSerieId" class="form-control" >
+                        <optgroup label="Elige una opcion">
                             @foreach (var item in Model.Series)
                             {
                                 <option value="@item.DocumentTypeBranchOfficeSerieId">@string.Concat(item.Serie)</option>
@@ -58,10 +59,10 @@
                 </div>
             </div>
 
-            <div class="form-group row col-md-3" >
+            <div class="form-group row col-md-3">
                 <label asp-for="Number" class="col-sm-6 col-md-4 col-form-label">Número</label>
                 <div class="col-sm-12 col-md-8">
-                    <input asp-for="Number" class="form-control" placeholder="Serie" type="text">
+                    <input asp-for="Number" class="form-control" placeholder="Número" type="text" readonly>
                     <span asp-validation-for="Number" class="text-danger"></span>
                 </div>
             </div>
@@ -101,7 +102,7 @@
             <div class="form-group row col-md-5">
                 <label asp-for="IssueDate" class="col-sm-12 col-md-3 col-form-label">Fecha de Emis.</label>
                 <div class="col-sm-12 col-md-9">
-                    <input asp-for="IssueDate" class="form-control" placeholder="Serie" type="date">
+                    <input asp-for="IssueDate"   class="form-control" placeholder="Fecha" type="date" >
                     <span asp-validation-for="IssueDate" class="text-danger"></span>
                 </div>
             </div>
@@ -113,7 +114,8 @@
                         <optgroup label="Elige una opcion" data-max-options="2">
                             @foreach (var item in Model.MethodPayments)
                             {
-                <option value="@item.MethodPaymentId">@string.Concat(item.Description)</option>}
+                                <option value="@item.MethodPaymentId">@string.Concat(item.Description)</option>
+}
                         </optgroup>
                     </select>
                     <span asp-validation-for="MethodPaymentId" class="text-danger"></span>
@@ -130,7 +132,7 @@
                 <h4 class="text-blue h4">Listado del Productos</h4>
             </div>
             <div class="pb-20">
-                <table id="example" class="data-table table stripe hover nowrap">
+                <table id="example" class="table stripe hover nowrap">
                     <thead>
                         <tr>
                             <th>Codigo</th>
@@ -150,24 +152,24 @@
                                 selectedRow = "success";
                             }
 
-                        <tr class="@selectedRow">
-                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
-                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Description)</td>
-                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Quantity)</td>
-                            <td class="table-plus"> @Html.DisplayFor(modelItem => item.Price())</td>
-                            <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                            <td>
-                                <div class="dropdown2">
-                                    <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                        <i class="dw dw-more"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Quitar</a>
+                            <tr class="@selectedRow">
+                                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Description)</td>
+                                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Quantity)</td>
+                                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Price())</td>
+                                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                <td>
+                                    <div class="dropdown2">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Quitar</a>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-            }
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
 
@@ -190,7 +192,7 @@
                 <div class="form-group row">
                     <label asp-for="Tax" class="col-sm-12 col-md-4 col-form-label">IGV</label>
                     <div class="col-sm-12 col-md-8">
-                        <input asp-for="Tax" class="form-control" style="text-align:right;"  type="number" value="0.00" readonly>
+                        <input asp-for="Tax" class="form-control" style="text-align:right;" type="number" value="0.00" readonly>
                         <span asp-validation-for="Tax" class="text-danger"></span>
                     </div>
                 </div>
@@ -198,7 +200,7 @@
                 <div class="form-group row">
                     <label asp-for="Total" class="col-sm-12 col-md-4 col-form-label">Total</label>
                     <div class="col-sm-12 col-md-8">
-                        <input asp-for="Total" class="form-control right" style="text-align:right;"  type="number" value="0.00" readonly>
+                        <input asp-for="Total" class="form-control right" style="text-align:right;" type="number" value="0.00" readonly>
                         <span asp-validation-for="Total" class="text-danger"></span>
                     </div>
                 </div>
@@ -256,16 +258,17 @@
                                         <td>
                                             <div class="dropdown2">
                                                 @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                    <i class="dw dw-more"></i>
-                                                </a>*@
+                                                        <i class="dw dw-more"></i>
+                                                    </a>*@
                                                 @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
-                                                </div>*@
+                                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                    </div>*@
 
-                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId"  />
+                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId" />
                                             </div>
                                         </td>
-                                    </tr>}
+                                    </tr>
+}
                             </tbody>
                         </table>
                     </div>
@@ -314,27 +317,28 @@
                                     {
                                         selectedRow = "success";
                                     }
-                    @Html.Hidden("Customers[" + i + "].CustomerId", item.CustomerId)
+                                    @Html.Hidden("Customers[" + i + "].CustomerId", item.CustomerId)
                                     @Html.Hidden("Customers[" + i + "].IdentityDocumentNumber", item.IdentityDocumentNumber)
-                                                    @Html.Hidden("Customers[" + i + "].BusinessName", item.BusinessName)
-                                                                    @Html.Hidden("Customers[" + i + "].Address", item.Address)
-                                                                                    <tr class="@selectedRow">
-                                                                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.IdentityDocumentNumber)</td>
-                                                                                        <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
-                                                                                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
-                                                                                        <td>
-                                                                                            <div class="dropdown2">
-                                                                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                                                                    <i class="dw dw-more"></i>
-                                                                                                </a>*@
-                                                                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                                                                        <a class="dropdown-item" asp-route-id="@item.CustomerId"><i class="dw dw-edit2"></i>Seleccionar</a>
-                                                                                                    </div>*@
+                                    @Html.Hidden("Customers[" + i + "].BusinessName", item.BusinessName)
+                                    @Html.Hidden("Customers[" + i + "].Address", item.Address)
+                                    <tr class="@selectedRow">
+                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.IdentityDocumentNumber)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                        <td>
+                                            <div class="dropdown2">
+                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                        <i class="dw dw-more"></i>
+                                                    </a>*@
+                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                        <a class="dropdown-item" asp-route-id="@item.CustomerId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                    </div>*@
 
-                                                                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.CustomerId" />
-                                                                                            </div>
-                                                                                        </td>
-                                                                                    </tr>}
+                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.CustomerId" />
+                                            </div>
+                                        </td>
+                                    </tr>
+}
                             </tbody>
                         </table>
                     </div>
@@ -347,28 +351,11 @@
         </div>
     </div>
 </div>
+
 @section Scripts{
-   <script src="~/lib/jquery/dist/jquery.min.js"></script>
-   <script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+<script>
         $(document).ready(function () {
-            @*$("#Seleccionar").click(function () {
-                $.ajax({
-                type: "POST",
-                url: "@Url.Action("AddCustomer")",
-                data: {id: 1},
-                dataType: "json",
-                success: function (msg) {
-                    $("#Customer_CustomerId").val(msg.customerId);
-                    $("#Customer_IdentityDocumentNumber").val(msg.identityDocumentNumber);
-                    $("#Customer_BusinessName").val(msg.businessName);
-                    $("#Customer_Address").val(msg.address);
-                    console.log(msg);
-                },
-                error: function (req, status, error) {
-                    alert(error);
-                }
-                })
-            })*@
 
             $(".CustomerList").on("click", ".select", function (event) {
             event.preventDefault();
@@ -435,9 +422,63 @@
                     })
                 }
             });
-            
+
+            $('#DocumentTypeId').on('change', function () {
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetSerie")",
+                data: { id: this.value},
+                dataType: "json",
+                    success: function (msg) {
+                        $("#DocumentTypeBranchOfficeSerieId optgroup").empty();
+                        $.each(msg, function (index, msg) {
+
+                            $('<option>', {
+                                value: msg.documentTypeBranchOfficeSerieId,
+                                text: msg.serie
+                            }).appendTo("#DocumentTypeBranchOfficeSerieId optgroup");
+                        });
 
 
+                         $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("GetNumber")",
+                            data: { id: $('#DocumentTypeId').val(), serie: $("#DocumentTypeBranchOfficeSerieId option:selected").text()},
+                        dataType: "json",
+                            success: function (msg) {
+                                console.log(msg);
+                                $("#Number").val( msg);
+
+                        },
+                        error: function (req, status, error) {
+                            alert(error);
+                        }
+                        })
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+                })
+            });
+
+
+            $('#DocumentTypeBranchOfficeSerieId ').on('change', function () {
+                //alert(this.value);
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetNumber")",
+                    data: { id: $('#DocumentTypeId').val(), serie: $("#DocumentTypeBranchOfficeSerieId option:selected").text()},
+                dataType: "json",
+                    success: function (msg) {
+                        console.log(msg);
+                        $("#Number").val( msg);
+
+                },
+                error: function (req, status, error) {
+                    alert(error);
+                }
+                })
+            });
         })
 
        function Quantity(id) {
@@ -468,5 +509,5 @@
            document.getElementById('Tax').value = tax.toFixed(2);;
            document.getElementById('Total').value = sum.toFixed(2);;
        }
-   </script>
+</script>
 }

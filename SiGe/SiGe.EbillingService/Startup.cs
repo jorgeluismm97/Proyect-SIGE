@@ -72,11 +72,22 @@ namespace SiGe.EbillingService
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ICustomerService, CustomerService>();
 
+
+            services.AddScoped<INoteService, NoteService>();
+            services.AddScoped<INoteRepository, NoteRepository>();
+            services.AddScoped<INoteDetailService, NoteDetailService>();
+            services.AddScoped<INoteDetailRepository, NoteDetailRepository>();
+            services.AddScoped<INoteTypeService, NoteTypeService>();
+            services.AddScoped<INoteTypeRepository, NoteTypeRepository>();
+            services.AddScoped<INoteDetailDocumentDetailService, NoteDetailDocumentDetailService>();
+            services.AddScoped<INoteDetailDocumentDetailRepository, NoteDetailDocumentDetailRepository>();
+
             services.AddScoped<ISecurityCommandText, SecurityCommandText>();
             services.AddScoped<IMainCommandText, MainCommandText>();
             services.AddScoped<IPaymentCommandText, PaymentCommandText>();
             services.AddScoped<IProductCommandText, ProductCommandText> ();
             services.AddScoped<IBillingCommandText, BillingCommandText>();
+            services.AddScoped<ILogisticsCommandText, LogisticsCommandText>();
 
             services.AddMvc();
             services.AddSession();

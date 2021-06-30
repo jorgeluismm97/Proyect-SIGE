@@ -10,7 +10,7 @@ namespace SiGe
         public DateTime IssueDate { get; set; }
         public string IdentityDocumentNumber { get; set; }
         public string Document { get; set; }
-        public string BussinesName { get; set; }
+        public string BusinessName { get; set; }
         public decimal Total { get; set; }
     }
 }

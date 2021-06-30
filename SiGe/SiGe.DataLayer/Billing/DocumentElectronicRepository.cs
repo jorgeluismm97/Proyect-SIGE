@@ -120,5 +120,30 @@ namespace SiGe
 
             return ls;
         }
+
+        // Advanced
+
+        public async Task<DocumentElectronicModel> GetByDocumentIdAsync(int documentId)
+        {
+            var rs = new DocumentElectronicModel();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    rs = await connection.QueryFirstOrDefaultAsync<DocumentElectronicModel>(
+                                        _billingCommandText.GetDocumentElectronicByDocumentId,
+                                        new { DocumentId = documentId },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return rs;
+        }
     }
 }

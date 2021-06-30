@@ -50,7 +50,7 @@
     <tr class="@selectedRow">
         <td class="table-plus"> @Html.DisplayFor(modelItem => item.IssueDate)</td>
         <td>@Html.DisplayFor(modelItem => item.Document)</td>
-        <td>@Html.DisplayFor(modelItem => item.BussinesName)</td>
+        <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
         <td>@Html.DisplayFor(modelItem => item.Total)</td>
         <td>
             <div class="dropdown">
@@ -58,9 +58,9 @@
                     <i class="dw dw-more"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.DocumentId"><i class="dw dw-edit2"></i>Edit</a>
-                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Eliminar</a>
                     <a class="dropdown-item" asp-action="Details" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Detalles</a>
+                    <a class="dropdown-item" asp-action="Print" asp-route-id="@item.DocumentId"><i class="dw dw-edit2"></i>Imprimir</a>
+                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Anular</a>
                 </div>
             </div>
         </td>

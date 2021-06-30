@@ -43,7 +43,9 @@ namespace SiGe
             return await _documentRepository.GetByCompanyIdAsync(companyId);
         }
 
-
-        
+        public async Task<int> GetNewNumberByDocumentTypeIdSerieIndicatorAsync(int companyId, int documentTypeId, string serie)
+        {
+            return await _documentRepository.GetNewNumberByDocumentTypeIdSerieIndicatorAsync(companyId, documentTypeId,serie);
+        }
     }
 }

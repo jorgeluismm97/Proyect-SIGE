@@ -150,5 +150,30 @@ namespace SiGe
             return ls;
         }
 
+        public async Task<int> GetNewNumberByDocumentTypeIdSerieIndicatorAsync(int companyId, int documentTypeId, string serie)
+        {
+            int number = 0;
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    number = await connection.ExecuteScalarAsync<int>(
+                                            _billingCommandText.GetDocumentNewNumber,
+                                            new
+                                            {
+                                                CompanyId = companyId,
+                                                DocumentTypeId = documentTypeId,
+                                                Serie = serie
+                                            },
+                                            commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception exception)
+            {
+                
+            }
+            return number;
+        }
+
     }
 }

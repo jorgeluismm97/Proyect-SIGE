@@ -11,7 +11,7 @@
         public string GetDocumentByCompanyId => "Usp_Bil_S_Bil_Document_Get_By_CompanyId";
         public string GetDocumentSearchView => "Usp_Bil_S_Bil_Document_Get_Search_View_Document";
         public string GetDocumentByDocumentTypeIdSerieNumber => "Usp_Bil_S_Bil_Document_Get_By_DocumentTypeId_Serie_Number";
-        public string GetDocumentNewNumber => "Usp_Bil_S_Bil_Document_Get_New_Number_By_DocumentTypeId_Serie";
+        public string GetDocumentNewNumber => "Usp_Bil_S_Bil_Document_Get_New_Number_By_CompanyId_DocumentTypeId_Serie";
 
         // Bil_DocumentDetail
 
@@ -27,6 +27,7 @@
         public string UpdateDocumentElectronic => "";
         public string GetDocumentElectronicById => "";
         public string GetAllDocumentElectronic => "";
+        public string GetDocumentElectronicByDocumentId => "Usp_Bil_S_Bil_DocumentElectronic_Get_By_DocumentId";
 
         // Bil_DocumentTypeBranchOfficeSerie
 
@@ -34,7 +35,8 @@
         public string UpdateDocumentTypeBranchOfficeSerie => "Usp_Bil_U_Bil_DocumentTypeBranchOfficeSerie";
         public string GetDocumentTypeBranchOfficeSerieById => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_DocumentTyeBranchOfficeSerieId";
         public string GetAllDocumentTypeBranchOfficeSerie => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie";
-        public string GetDocumentTypeBranchOfficeSerieByCompanyId => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_CompanyId";
+        public string GetDocumentTypeBranchOfficeSerieByCompanyId=> "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_CompanyId";
+        public string GetDocumentTypeBranchOfficeSerieByCompanyIdDocumentTypeId => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_CompanyId_DocumentTypeId";
         public string GetDocumentTypeBranchOfficeSerieMainView => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_ShortView";
         public string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeIdSerie => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_By_DocumentTypeIdBranchOfficeIdSerie";
         public string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeId => "Usp_Bil_S_Bil_DocumentTypeBranchOfficeSerie_Get_By_DocumentTypeId_BranchOfficeId";

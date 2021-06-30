@@ -27,6 +27,7 @@
         string UpdateDocumentElectronic { get; }
         string GetDocumentElectronicById { get; }
         string GetAllDocumentElectronic { get; }
+        string GetDocumentElectronicByDocumentId { get; }
 
         // Bil_DocumentTypeBranchOfficeSerie
 
@@ -34,7 +35,8 @@
         string UpdateDocumentTypeBranchOfficeSerie { get; }
         string GetDocumentTypeBranchOfficeSerieById { get; }
         string GetAllDocumentTypeBranchOfficeSerie { get; }
-        string GetDocumentTypeBranchOfficeSerieByCompanyId { get;  }
+        string GetDocumentTypeBranchOfficeSerieByCompanyId { get; }
+        string GetDocumentTypeBranchOfficeSerieByCompanyIdDocumentTypeId { get;  }
         string GetDocumentTypeBranchOfficeSerieMainView { get;  }
         string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeIdSerie { get; }
         string GetDocumentTypeBranchOfficeSerieByDocumentTypeIdBranchOfficeId { get; }
