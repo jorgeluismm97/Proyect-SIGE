@@ -33,5 +33,11 @@ namespace SiGe
         {
             return await _noteDetailRepository.GetAllAsync();
         }
+
+        // Advanced
+        public async Task<List<NoteProductModelDetail>> GetNoteDetailProductByNoteIdAsync(int noteId)
+        {
+            return await _noteDetailRepository.GetNoteDetailProductByNoteIdAsync(noteId);
+        }
     }
 }

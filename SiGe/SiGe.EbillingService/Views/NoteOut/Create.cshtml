@@ -1,0 +1,264 @@
+﻿@model SiGe.NoteCreateViewModel;
+
+@{ ViewData["Title"] = "Nuevo"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Nueva Nota</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Notas de Salida</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis Notas de Salida</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos de las Notas</h4>
+        </div>
+    </div>
+    <form asp-controller="NoteOut" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="row">
+            <div class="form-group row col-md-4">
+                <label asp-for="NoteTypeId" class="col-sm-6 col-md-3 col-form-label">Tipos de Notas</label>
+                <div class="col-sm-12 col-md-9">
+                    <select asp-for="NoteTypeId" class="selectpicker form-control" data-style="btn-outline-primary" data-size="5">
+                        <optgroup label="Elige una opcion" data-max-options="2">
+                            @foreach (var item in Model.NoteTypes)
+                            {
+                <option value="@item.NoteTypeId">@string.Concat(item.Description)</option>
+}
+                        </optgroup>
+                    </select>
+                    <span asp-validation-for="NoteTypeId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row col-md-5">
+                <label asp-for="IssueDate" class="col-sm-12 col-md-3 col-form-label">Fecha de Emis.</label>
+                <div class="col-sm-12 col-md-9">
+                    <input asp-for="IssueDate" class="form-control" placeholder="Fecha" type="date">
+                    <span asp-validation-for="IssueDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row col-md-3">
+                <label asp-for="Number" class="col-sm-6 col-md-4 col-form-label">Número</label>
+                <div class="col-sm-12 col-md-8">
+                    <input asp-for="Number" class="form-control" placeholder="Número" type="text" readonly>
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group row col-md-12">
+                <label asp-for="Description" class="col-sm-12 col-md-2 col-form-label">Descripcion.</label>
+                <div class="col-sm-12 col-md-10">
+                    <input asp-for="Description" class="form-control" placeholder="Descripcion" type="text">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-primary popup" data-url="Product/Search" data-toggle="modal" data-target="#modal-search-product" id="ProductModel" type="button" value="Productos" />
+        </div>
+
+        <div class="card-box mb-30">
+            <div class="pd-20">
+                <h4 class="text-blue h4">Listado del Productos</h4>
+            </div>
+            <div class="pb-20">
+                <table id="example" class="table stripe hover nowrap">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario</th>
+                            <th>Precio Total</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody class="DocumentList">
+                        @foreach (var item in Model.Details)
+                        {
+                            string selectedRow = "";
+                            if (item.ProductId == (int?)ViewData["ProductId"])
+                            {
+                                selectedRow = "success";
+                            }
+
+            <tr class="@selectedRow">
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Description)</td>
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Quantity)</td>
+                <td class="table-plus"> @Html.DisplayFor(modelItem => item.Price())</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>
+                    <div class="dropdown2">
+                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                            <i class="dw dw-more"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Quitar</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+        </div>
+    </form>
+</div>
+<!-- Default Basic Forms End -->
+<!--Modal-->
+<!--Product-->
+<div aria-hidden="true" aria-labelledby="modal-search-product-label" role="dialog" tabindex="-1" id="modal-search-product" class="modal fade ">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Busqueda de Productos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-box mb-30">
+                    <div class="pd-20">
+                        <h4 class="text-blue h4">Lista de Productos</h4>
+                    </div>
+                    <div class="pb-20">
+                        <table id="example" class="data-table table stripe hover nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="table-plus datatable-nosort">Codigo</th>
+                                    <th>Producto</th>
+                                    <th class="datatable-nosort">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ProductList">
+                                @foreach (var item in Model.Products)
+                                {
+                                    var i = Model.Products.IndexOf(item);
+                                    string selectedRow = "";
+                                    if (item.ProductId == (int?)ViewData["ProductId"])
+                                    {
+                                        selectedRow = "success";
+                                    }
+                                        @Html.Hidden("Products[" + i + "].ProductId", item.ProductId)
+                                        @Html.Hidden("Products[" + i + "].Code", item.Code)
+                                        @Html.Hidden("Products[" + i + "].Description", item.Description)
+
+                                    <tr class="@selectedRow">
+                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                        <td>
+                                            <div class="dropdown2">
+                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                        <i class="dw dw-more"></i>
+                                                    </a>*@
+                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                    </div>*@
+
+                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId" />
+                                            </div>
+                                        </td>
+                                    </tr>}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @*<button type="button" class="btn btn-primary"></button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Customer-->
+
+@section Scripts{
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    <script>
+        $(document).ready(function () {
+
+            $(".ProductList").on("click", ".select", function (event) {
+                event.preventDefault();
+                var productId = $(this).attr('data-id');
+                let indicator = true;
+                $(".DocumentList input").each(function () {
+                    if ($(this).attr("id").indexOf("ProductId")>=0)
+                    {
+                        var _productId = document.getElementById($(this).attr("id")).value;
+                        if (productId === _productId) {
+                            alert("Ya esta registrado");
+                            indicator = false;
+                        }
+                    }
+                });
+
+                if (indicator) {
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("AddProduct","Product")",
+                        data: { id: productId },
+                        dataType: "json",
+                        success: function (msg) {
+
+                            var row = "  <tr>" +
+                                "<input class='form-control' type='hidden' id = 'ProductId" + msg.productId +"'  name ='Details[0].ProductId' value ='" + msg.productId +"'>"+
+                                "<td class='table-plus'><input class='form-control' id = 'Code" + msg.productId +"' type='hidden' name ='Details[0].Code' value ='" + msg.code + "'>" + msg.code + "</td>" +
+                                "<td><input class='form-control' id = 'Description" + msg.productId +"'type='hidden' name ='Details[0].Description' value ='" + msg.description + "'>" + msg.description + "</td>" +
+                                "<td><input class='form-control' id = 'Quantity" + msg.productId + "' style='text-align: right;'  type='number' name ='Details[0].Quantity' oninput=Quantity(id) value = 1></td>" +
+                                "<td><input class='form-control' id = 'UnitPrice" + msg.productId + "' style='text-align: right;' type='number' name ='Details[0].UnitPrice' oninput=UnitPrice(id) value = 0></td>" +
+                                "<td><input class='form-control' id = 'TotalPrice" + msg.productId + "' style='text-align: right;' type='number' name ='Details[0].Price()' value = 0 readonly></td>" +
+                                "<td>" +
+                                "<input type='submit' value='Quitar' class='btn btn-danger select' name='action' id='Seleccionar' data-id='" + msg.producId + "'  />" +
+                                "</div>" +
+                                "</td>" +
+                                "</tr>";
+                            $(".DocumentList").append(row);
+                            console.log(msg);
+                        },
+                        error: function (req, status, error) {
+                            alert(error);
+                        }
+                    })
+                }
+            });
+
+        })
+
+       function Quantity(id) {
+           var quantity = document.getElementById(id).value;
+           var unitPrice = document.getElementById('UnitPrice' + id.replace('Quantity', '')).value;
+           document.getElementById('TotalPrice' + id.replace('Quantity', '')).value = quantity * unitPrice;
+       }
+       function UnitPrice(id) {
+           var unitPrice = document.getElementById(id).value;
+           var quantity = document.getElementById('Quantity' + id.replace('UnitPrice', '')).value;
+           document.getElementById('TotalPrice' + id.replace('UnitPrice', '')).value = quantity * unitPrice;
+
+       }
+    </script>
+}

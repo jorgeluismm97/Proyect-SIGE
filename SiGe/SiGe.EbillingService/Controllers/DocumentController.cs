@@ -22,8 +22,11 @@ namespace SiGe.Controllers
         private readonly ICustomerService _customerService;
         private readonly ICompanyService _companyService;
         private readonly ICompanyCertificateService _companyCertificateService;
+        private readonly INoteService _noteService;
+        private readonly INoteDetailService _noteDetailService;
+        private readonly INoteDetailDocumentDetailService _noteDetailDocumentDetailService;
 
-        public DocumentController(IDocumentDetailService documentDetailService, IDocumentElectronicService documentElectronicService, ICompanyCertificateService companyCertificateService,ICompanyService companyService,IDocumentService documentService, IDocumentTypeService documentTypeService, IDocumentTypeBranchOfficeSerieService documentTypeBranchOfficeSerieService, IMethodPaymentService methodPaymentService, IProductService productService, ICustomerService customerService)
+        public DocumentController(INoteDetailDocumentDetailService noteDetailDocumentDetailService, INoteDetailService noteDetailService,INoteService noteService,IDocumentDetailService documentDetailService, IDocumentElectronicService documentElectronicService, ICompanyCertificateService companyCertificateService,ICompanyService companyService,IDocumentService documentService, IDocumentTypeService documentTypeService, IDocumentTypeBranchOfficeSerieService documentTypeBranchOfficeSerieService, IMethodPaymentService methodPaymentService, IProductService productService, ICustomerService customerService)
         {
             _documentService = documentService;
             _documentDetailService = documentDetailService;
@@ -35,6 +38,9 @@ namespace SiGe.Controllers
             _customerService = customerService;
             _companyService = companyService;
             _companyCertificateService = companyCertificateService;
+            _noteService = noteService;
+            _noteDetailService = noteDetailService;
+            _noteDetailDocumentDetailService = noteDetailDocumentDetailService;
         }
 
 
@@ -315,6 +321,10 @@ namespace SiGe.Controllers
                 var documentModel = new DocumentModel();
                 var documentElectronicModel = new DocumentElectronicModel();
                 var documentDetailModel = new DocumentDetailModel();
+                var noteModel = new NoteModel();
+                var noteDetailModel = new NoteDetailModel();
+                var noteDetailDocumentDetailModel = new NoteDetailDocumentDetailModel();
+
 
                 documentModel.DocumentId = 0;
                 documentModel.DocumentTypeId = Convert.ToInt32(documentCreateViewModel.DocumentTypeId);
@@ -340,6 +350,23 @@ namespace SiGe.Controllers
                     await _documentService.AddAsync(documentModel);
                 });
 
+                noteModel.NoteId = 0;
+                noteModel.NoteTypeId = 8;
+                noteModel.BranchOfficeId = 1;
+                noteModel.CustomerId = documentCreateViewModel.Customer.CustomerId;
+                noteModel.IssueDate = documentCreateViewModel.IssueDate;
+                noteModel.Number = await Task.Run(async () => { return await _noteService.GetNewNumberByActionTypeAsync(1); });
+                noteModel.Description = "Nota de Salida Por Venta de Mercaderia" +" | " + Convert.ToString(serie.Serie) + " - " + ("00000000" + documentCreateViewModel.Number).Substring(("00000000" + documentCreateViewModel.Number).Length - 8, 8);
+                noteModel.CreatorUser = "";
+                noteModel.UpdaterUser = "";
+                noteModel.CreateDate = DateTime.Now;
+                noteModel.UpdateDate = DateTime.Now;
+                noteModel.Status = true;
+                noteModel.Removed = false;
+
+                await Task.Run(async () =>
+                { return await _noteService.AddAsync(noteModel); }
+                );
 
                 documentElectronicModel.DocumentElectronicId = 0;
                 documentElectronicModel.DocumentId = documentModel.DocumentId;
@@ -361,7 +388,6 @@ namespace SiGe.Controllers
                     await _documentElectronicService.AddAsync(documentElectronicModel);
                 });
 
-
                 if (true)
                 {
                     foreach (var item in documentCreateViewModel.Details)
@@ -382,7 +408,25 @@ namespace SiGe.Controllers
                             await _documentDetailService.AddAsync(documentDetailModel);
                         });
 
+                        noteDetailModel.NoteDetailId = 0;
+                        noteDetailModel.NoteId = noteModel.NoteId;
+                        noteDetailModel.ProductId = item.ProductId;
+                        noteDetailModel.Quantity = item.Quantity;
+                        noteDetailModel.UnitPrice = item.UnitPrice;
+                        noteDetailModel.CreatorUser = "";
+                        noteDetailModel.UpdaterUser = "";
+                        noteDetailModel.CreateDate = DateTime.Now;
+                        noteDetailModel.UpdateDate = DateTime.Now;
+                        noteDetailModel.Status = true;
+                        noteDetailModel.Removed = false;
 
+                        await Task.Run(async () => { return await _noteDetailService.AddAsync(noteDetailModel); });
+
+                        noteDetailDocumentDetailModel.NoteDetailDocumentDetailId = 0;
+                        noteDetailDocumentDetailModel.DocumentDetailId = documentDetailModel.DocumentDetailId;
+                        noteDetailDocumentDetailModel.NoteDetailId = noteDetailModel.NoteDetailId;
+
+                        await Task.Run(async () => { return await _noteDetailDocumentDetailService.AddAsync(noteDetailDocumentDetailModel); });
                     }
                 }
             }
@@ -433,5 +477,16 @@ namespace SiGe.Controllers
             return Json(number);
 
         }
+
+        // GET: Document/Details/id
+        [Authorize]
+        public async Task<IActionResult> Details( int id)
+        {
+            var documentElectronic = await _documentElectronicService.GetByDocumentIdAsync(id);
+
+            return View(documentElectronic);
+        }
+
+
     }
 }

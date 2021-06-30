@@ -33,5 +33,12 @@ namespace SiGe
         {
             return await _documentElectronicRepository.GetAllAsync();
         }
+
+        // Advanced
+
+        public async Task<DocumentElectronicModel> GetByDocumentIdAsync(int documentId)
+        {
+            return await _documentElectronicRepository.GetByDocumentIdAsync(documentId);
+        }
     }
 }

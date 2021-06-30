@@ -120,5 +120,32 @@ namespace SiGe
 
             return ls;
         }
+
+        // Advanced
+
+        public async Task<List<NoteProductModelDetail>> GetNoteDetailProductByNoteIdAsync( int noteId)
+        {
+            var ls = new List<NoteProductModelDetail>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<NoteProductModelDetail>(
+                                        _logisticsCommandText.GetNoteDetailProductByNoteId,
+                                        new {NoteId = noteId},
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
     }
 }

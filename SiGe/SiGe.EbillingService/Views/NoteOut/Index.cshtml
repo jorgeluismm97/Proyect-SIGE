@@ -1,0 +1,73 @@
+﻿@model List<SiGe.NoteViewModel>
+
+@{ ViewData["Title"] = "Notas de Salida"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Notas de Salida</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Notas de Salida</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Lista de Notas de Salida</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<p>
+    <a type="button" class="btn btn-success" asp-controller="NoteOut" asp-action="Create">Nuevo Nota</a>
+</p>
+
+<!-- Simple Datatable start -->
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Listado de Notas de Salida</h4>
+    </div>
+    <div class="pb-20">
+        <table class="data-table table stripe hover nowrap">
+            <thead>
+                <tr>
+                    <th class="table-plus datatable-nosort">Fecha de Emisión</th>
+                    <th>Nota</th>
+                    <th>Tipo de Nota</th>
+                    <th>Descripcion</th>
+                    <th>Total</th>
+                    <th class="datatable-nosort">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    string selectedRow = "";
+                    if (item.NoteId == (int?)ViewData["NoteId"])
+                    {
+                        selectedRow = "success";
+                    }
+
+                <tr class="@selectedRow">
+                    <td class="table-plus"> @Html.DisplayFor(modelItem => item.IssueDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NoteType)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                <i class="dw dw-more"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                <a class="dropdown-item" asp-action="Details" asp-route-id="@item.NoteId"><i class="dw dw-delete-3"></i>Detalles</a>
+                                <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.NoteId"><i class="dw dw-delete-3"></i>Anular</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Simple Datatable End -->

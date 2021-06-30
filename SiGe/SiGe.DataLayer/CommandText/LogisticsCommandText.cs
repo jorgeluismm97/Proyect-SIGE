@@ -15,6 +15,7 @@
         public string UpdateNoteDetail => "Usp_Log_U_Log_NoteDetail";
         public string GetNoteDetailById => "Usp_Log_S_Log_NoteDetail_Get_By_NoteDetailId";
         public string GetAllNoteDetail => "Usp_Log_S_Log_NoteDetail";
+        public string GetNoteDetailProductByNoteId => "Usp_Log_S_Log_NoteDetail_Product_Get_By_NoteId";
         public string GetNoteDetailByNoteId => "Usp_Log_S_Log_NoteDetail_Get_By_NoteId";
 
         // Log_Note
@@ -23,7 +24,7 @@
         public string UpdateNote => "Usp_Log_U_Log_Note";
         public string GetNoteById => "Usp_Log_S_Log_Note_Get_By_NoteId";
         public string GetAllNote => "Usp_Log_S_Log_Note";
-        public string GetNoteMainView => "Usp_Log_S_Log_Note_Get_Main_View";
+        public string GetNoteByCompanyIdActionType => "Usp_Log_S_Log_Note_Get_By_CompanyId_ActionType";
         public string GetNoteSearchView => "Usp_Log_S_Log_Note_Get_Search_View";
         public string GetNoteNewNumber => "Usp_Log_S_Log_Note_Get_New_Number_By_ActionType";
         public string GetNoteKardexSimple => "Usp_Log_S_Log_Note_Get_Kardex_Simple";

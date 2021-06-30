@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SiGe
@@ -32,6 +33,19 @@ namespace SiGe
         public async Task<List<NoteTypeModel>> GetAllAsync()
         {
             return await _noteTypeRepository.GetAllAsync();
+        }
+
+
+
+        // Advanced
+
+        public async Task<List<NoteTypeModel>> GetByActionType(int actiontype)
+        {
+            var noteType = await GetAllAsync();
+
+            var noteTypeResult = noteType.Where(x => x.ActionType == actiontype && x.NoteTypeId != 3 && x.NoteTypeId != 8).ToList();
+
+            return noteTypeResult;
         }
     }
 }

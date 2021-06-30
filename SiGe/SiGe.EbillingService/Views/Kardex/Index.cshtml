@@ -1,0 +1,153 @@
+﻿@model SiGe.KardexViewModel
+
+@{ ViewData["Title"] = "Kardex"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Movimientos de Mercaderia</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Kardex</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Kardex</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- Simple Datatable start -->
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Movimientos de Mercaderia</h4>
+    </div>
+    <div class="pb-20">
+        <form asp-controller="Kardex" asp-action="Details">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row" style="margin : auto;">
+                <input asp-for="Product.ProductId"  type="hidden">
+                <div class="form-group row cols-md-5 ">
+                    <label asp-for="Product.Code" class="col-sm-12 col-md-2 col-form-label">Código</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input asp-for="Product.Code" class="form-control" type="text">
+                        <span asp-validation-for="Product.Code" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-md-5">
+                    <label asp-for="Product.Description" class="col-sm-12 col-md-2 col-form-label">Nombre</label>
+                    <div class="col-sm-12 col-md-10">
+                        <input asp-for="Product.Description" class="form-control" type="text">
+                        <span asp-validation-for="Product.Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <input class="btn btn-primary popup" data-url="Product/Search" data-toggle="modal" data-target="#modal-search-product" id="ProductModel" type="button" value="Productos" />
+                    <input type="submit" value="Generar" class="btn btn-primary" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Simple Datatable End -->
+<!-- Default Basic Forms End -->
+<!--Modal-->
+<!--Product-->
+<div aria-hidden="true" aria-labelledby="modal-search-product-label" role="dialog" tabindex="-1" id="modal-search-product" class="modal fade ">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Busqueda de Productos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-box mb-30">
+                    <div class="pd-20">
+                        <h4 class="text-blue h4">Lista de Productos</h4>
+                    </div>
+                    <div class="pb-20">
+                        <table id="example" class="data-table table stripe hover nowrap">
+                            <thead>
+                                <tr>
+                                    <th class="table-plus datatable-nosort">Codigo</th>
+                                    <th>Producto</th>
+                                    <th class="datatable-nosort">Accion</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ProductList">
+                                @foreach (var item in Model.Products)
+                                {
+                                    var i = Model.Products.IndexOf(item);
+                                    string selectedRow = "";
+                                    if (item.ProductId == (int?)ViewData["ProductId"])
+                                    {
+                                        selectedRow = "success";
+                                    }
+                    @Html.Hidden("Products[" + i + "].ProductId", item.ProductId)
+                                    @Html.Hidden("Products[" + i + "].Code", item.Code)
+                                                    @Html.Hidden("Products[" + i + "].Description", item.Description)
+
+                                                                    <tr class="@selectedRow">
+                                                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                                                                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                                                        <td>
+                                                                            <div class="dropdown2">
+                                                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                                                                        <i class="dw dw-more"></i>
+                                                                                    </a>*@
+                                                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                                                                                    </div>*@
+
+                                                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId" />
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                @*<button type="button" class="btn btn-primary"></button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            $(".ProductList").on("click", ".select", function (event) {
+                event.preventDefault();
+                var productId = $(this).attr('data-id');
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("AddProduct")",
+                    data: { id: productId },
+                    dataType: "json",
+                    success: function (msg) {
+
+                        $("#Product_ProductId").val(msg.productId);
+                        $("#Product_Code").val(msg.code);
+                        $("#Product_Description").val(msg.description);
+
+                        console.log(msg);
+                    },
+                    error: function (req, status, error) {
+                        alert(error);
+                    }
+                })
+            });
+
+
+        })
+    </script>
+}

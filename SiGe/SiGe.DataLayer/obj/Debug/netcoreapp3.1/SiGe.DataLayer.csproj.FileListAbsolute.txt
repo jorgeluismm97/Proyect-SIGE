@@ -68,20 +68,6 @@ C:\Users\PC\Desktop\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.c
 C:\Users\PC\Desktop\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.CopyComplete
 C:\Users\PC\Desktop\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.dll
 C:\Users\PC\Desktop\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.deps.json
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.dll
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.Helper.dll
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.Helper.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.AssemblyInfoInputs.cache
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.AssemblyInfo.cs
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.CoreCompileInputs.cache
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.CopyComplete
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.dll
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.pdb
-C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.AssemblyReference.cache
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.deps.json
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.dll
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.pdb
@@ -96,3 +82,17 @@ C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\obj\Debug\netcorea
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.CopyComplete
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.dll
 C:\Users\PC\Desktop\git sige\Proyect-SIGE\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.deps.json
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.DataLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.Helper.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.Helper.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\bin\Debug\netcoreapp3.1\SiGe.ModelsLayer.pdb
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.AssemblyReference.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.AssemblyInfoInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.AssemblyInfo.cs
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.csproj.CopyComplete
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.dll
+C:\Users\luis_\Documents\Visual Studio 2019\Projects\SiGe\SiGe.DataLayer\obj\Debug\netcoreapp3.1\SiGe.DataLayer.pdb

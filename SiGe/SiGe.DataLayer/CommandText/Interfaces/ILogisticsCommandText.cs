@@ -15,6 +15,7 @@
         string UpdateNoteDetail { get; }
         string GetNoteDetailById { get; }
         string GetAllNoteDetail { get; }
+        string GetNoteDetailProductByNoteId { get; }
         string GetNoteDetailByNoteId { get; }
 
         // Log_Note
@@ -23,7 +24,7 @@
         string UpdateNote { get; }
         string GetNoteById { get; }
         string GetAllNote { get; }
-        string GetNoteMainView { get;  }
+        string GetNoteByCompanyIdActionType { get;  }
         string GetNoteSearchView { get;  }
         string GetNoteNewNumber { get; }
         string GetNoteKardexSimple { get; }
