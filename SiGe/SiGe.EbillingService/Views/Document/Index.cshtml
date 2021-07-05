@@ -35,6 +35,7 @@
                     <th>Comprobante</th>
                     <th>Nombre o Razon Social</th>
                     <th>Total</th>
+                    <th>Estado</th>
                     <th class="datatable-nosort">Accion</th>
                 </tr>
             </thead>
@@ -47,24 +48,27 @@
                         selectedRow = "success";
                     }
 
-    <tr class="@selectedRow">
-        <td class="table-plus"> @Html.DisplayFor(modelItem => item.IssueDate)</td>
-        <td>@Html.DisplayFor(modelItem => item.Document)</td>
-        <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
-        <td>@Html.DisplayFor(modelItem => item.Total)</td>
-        <td>
-            <div class="dropdown">
-                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                    <i class="dw dw-more"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.DocumentId"><i class="dw dw-edit2"></i>Edit</a>
-                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Eliminar</a>
-                    <a class="dropdown-item" asp-action="Details" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Detalles</a>
-                </div>
-            </div>
-        </td>
-    </tr>
+                <tr class="@selectedRow">
+                    <td class="table-plus"> @Html.DisplayFor(modelItem => item.IssueDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Document)</td>
+                    <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                    <td>@if (item.Status) {<img src="~/img/Activo.png" alt="">}else{<img src="~/img/Inactivo.png" alt="">}</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                <i class="dw dw-more"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                <a class="dropdown-item" asp-action="Details" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Detalles</a>
+                                <a class="dropdown-item" asp-action="Print" asp-route-id="@item.DocumentId" target="_blank"><i class="dw dw-edit2"></i>Imprimir</a>
+                                @if (item.Status)
+                                {
+                                     <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.DocumentId"><i class="dw dw-delete-3"></i>Anular</a>}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
 }
             </tbody>
         </table>

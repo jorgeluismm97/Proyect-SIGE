@@ -35,5 +35,14 @@ namespace SiGe
         }
 
         // Advanced
+        public async Task<List<NoteProductModelDetail>> GetDocumentDetailProductByDocumentIdAsync(int documentId)
+        {
+            return await _documentDetailRepository.GetDocumentDetailProductByDocumentIdAsync(documentId);
+        }
+
+        public async Task<List<DocumentDetailModel>> GetByDocumentIdAsync(int documentId)
+        {
+            return await _documentDetailRepository.GetByDocumentIdAsync(documentId);
+        }
     }
 }

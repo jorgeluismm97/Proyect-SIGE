@@ -27,14 +27,10 @@ namespace SiGe
         public int MethodPaymentId { get; set; }
         public decimal SubTotal { get; set; }
         public decimal Tax { get; set; }
-        //public decimal Total()
-        //{
-        //    return Details.Sum(x => x.Price());
-        //}
         public decimal Total { get; set; }
         public List<DocumentCreateViewModelDetail> Details { get; set; }
 
-        public List<ProductModel> Products { get; set; }
+        public List<ProductModelView> Products { get; set; }
         public List<CustomerModel> Customers { get; set; }
 
     }

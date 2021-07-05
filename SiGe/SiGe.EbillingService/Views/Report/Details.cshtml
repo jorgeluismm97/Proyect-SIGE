@@ -1,0 +1,41 @@
+﻿@model List<SiGe.DocumentViewModel>;
+
+@{ ViewData["Title"] = "Detalles"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <hr />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Fecha de Emisión</th>
+                        <th>Nro Documento</th>
+                        <th>Comprobante</th>
+                        <th>Razon Social</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.IssueDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.IdentityDocumentNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.Document)</td>
+            <td>@Html.DisplayFor(modelItem => item.BusinessName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+        </tr>}
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+    <form asp-controller="Report">
+        <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+    </form>
+
+</div>

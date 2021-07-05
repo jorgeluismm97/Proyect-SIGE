@@ -20,7 +20,7 @@ namespace SiGe.Controllers
         public async Task<IActionResult> Index()
         {
             var companyId = HttpContext.Session.GetInt32("companyId").Value;
-            var productModels = await _productService.GetByCompanyIdAsync(companyId);
+            var productModels = await _productService.GetProductQuantityByCompanyIdAsync(companyId);
             return View(productModels);
         }
 
@@ -136,6 +136,18 @@ namespace SiGe.Controllers
             var companyId = HttpContext.Session.GetInt32("companyId").Value;
             var product = await _productService.GetByDescriptionCompanyIdAsync(description, companyId);
             return Json(product);
+        }
+
+
+        ////POST: Serie/Create
+        [Authorize]
+        [HttpPost]
+        public async Task<JsonResult> AddProduct(int id)
+        {
+            var x = await _productService.GetByIdAsync(id);
+
+            return Json(x);
+
         }
     }
 }

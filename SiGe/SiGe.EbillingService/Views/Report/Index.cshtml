@@ -1,0 +1,50 @@
+﻿@model SiGe.ReportViewModel;
+
+@{ ViewData["Title"] = "Reporte de Ventas"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+                <h4>Reporte de Ventas</h4>
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Reporte de Ventas</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Mis Ventas</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Datos de Ventas</h4>
+        </div>
+    </div>
+    <form asp-controller="Report" asp-action="Details">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group row">
+            <label asp-for="startingDate" class="col-sm-12 col-md-2 col-form-label">Fecha de Inicio :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="startingDate" class="form-control" type="date" placeholder="Inicio">
+                <span asp-validation-for="startingDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="endingDate" class="col-sm-12 col-md-2 col-form-label">Fecha Fin :</label>
+            <div class="col-sm-12 col-md-10">
+                <input asp-for="endingDate" class="form-control" type="date" placeholder="Fin">
+                <span asp-validation-for="endingDate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Consultar" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

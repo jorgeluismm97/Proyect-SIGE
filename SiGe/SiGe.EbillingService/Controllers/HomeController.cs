@@ -5,6 +5,16 @@ namespace SiGe.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly IDocumentService _documentService;
+        private readonly INoteService _noteService;
+
+        public HomeController(IDocumentService documentService, INoteService noteService)
+        {
+            _documentService = documentService;
+            _noteService = noteService;
+        }
+
         [Authorize]
         public IActionResult Index()
         {
@@ -12,7 +22,16 @@ namespace SiGe.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            return View();
+
+            var home = new HomeViewModel
+            {
+                NumberOfCustomer = 1,
+                NumberOfIn = 1,
+                NumberOfOut = 2,
+                NumberOfSales = 1
+            };
+
+            return View(home);
         }
     }
 }

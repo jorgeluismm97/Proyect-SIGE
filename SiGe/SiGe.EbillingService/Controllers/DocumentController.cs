@@ -3,9 +3,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Mime;
+using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 
 namespace SiGe.Controllers
@@ -22,8 +25,13 @@ namespace SiGe.Controllers
         private readonly ICustomerService _customerService;
         private readonly ICompanyService _companyService;
         private readonly ICompanyCertificateService _companyCertificateService;
+        private readonly INoteService _noteService;
+        private readonly INoteDetailService _noteDetailService;
+        private readonly INoteDetailDocumentDetailService _noteDetailDocumentDetailService;
+        private readonly IIdentityDocumentTypeService _identityDocumentTypeService;
+        private readonly IBranchOfficeService _branchOfficeService;
 
-        public DocumentController(IDocumentDetailService documentDetailService, IDocumentElectronicService documentElectronicService, ICompanyCertificateService companyCertificateService,ICompanyService companyService,IDocumentService documentService, IDocumentTypeService documentTypeService, IDocumentTypeBranchOfficeSerieService documentTypeBranchOfficeSerieService, IMethodPaymentService methodPaymentService, IProductService productService, ICustomerService customerService)
+        public DocumentController(IBranchOfficeService branchOfficeService, IIdentityDocumentTypeService identityDocumentTypeService,INoteDetailDocumentDetailService noteDetailDocumentDetailService, INoteDetailService noteDetailService,INoteService noteService,IDocumentDetailService documentDetailService, IDocumentElectronicService documentElectronicService, ICompanyCertificateService companyCertificateService,ICompanyService companyService,IDocumentService documentService, IDocumentTypeService documentTypeService, IDocumentTypeBranchOfficeSerieService documentTypeBranchOfficeSerieService, IMethodPaymentService methodPaymentService, IProductService productService, ICustomerService customerService)
         {
             _documentService = documentService;
             _documentDetailService = documentDetailService;
@@ -35,6 +43,11 @@ namespace SiGe.Controllers
             _customerService = customerService;
             _companyService = companyService;
             _companyCertificateService = companyCertificateService;
+            _noteService = noteService;
+            _noteDetailService = noteDetailService;
+            _noteDetailDocumentDetailService = noteDetailDocumentDetailService;
+            _identityDocumentTypeService = identityDocumentTypeService;
+            _branchOfficeService = branchOfficeService;
         }
 
 
@@ -60,7 +73,7 @@ namespace SiGe.Controllers
             var number = await _documentService.GetNewNumberByDocumentTypeIdSerieIndicatorAsync(HttpContext.Session.GetInt32("companyId").Value, documentTypeId,serie);
 
             var methodPayment = await _methodPaymentService.GetAllAsync();
-            var product = await _productService.GetByCompanyIdAsync(HttpContext.Session.GetInt32("companyId").Value);
+            var product = await _productService.GetProductQuantityByCompanyIdAsync(HttpContext.Session.GetInt32("companyId").Value);
             var customer = await _customerService.GetByCompanyIdAsync(HttpContext.Session.GetInt32("companyId").Value);
 
             var document = new DocumentCreateViewModel
@@ -315,6 +328,10 @@ namespace SiGe.Controllers
                 var documentModel = new DocumentModel();
                 var documentElectronicModel = new DocumentElectronicModel();
                 var documentDetailModel = new DocumentDetailModel();
+                var noteModel = new NoteModel();
+                var noteDetailModel = new NoteDetailModel();
+                var noteDetailDocumentDetailModel = new NoteDetailDocumentDetailModel();
+
 
                 documentModel.DocumentId = 0;
                 documentModel.DocumentTypeId = Convert.ToInt32(documentCreateViewModel.DocumentTypeId);
@@ -340,6 +357,23 @@ namespace SiGe.Controllers
                     await _documentService.AddAsync(documentModel);
                 });
 
+                noteModel.NoteId = 0;
+                noteModel.NoteTypeId = 8;
+                noteModel.BranchOfficeId = 1;
+                noteModel.CustomerId = documentCreateViewModel.Customer.CustomerId;
+                noteModel.IssueDate = documentCreateViewModel.IssueDate;
+                noteModel.Number = await Task.Run(async () => { return await _noteService.GetNewNumberByActionTypeAsync(1); });
+                noteModel.Description = "Nota de Salida Por Venta de Mercaderia" +" | " + Convert.ToString(serie.Serie) + " - " + ("00000000" + documentCreateViewModel.Number).Substring(("00000000" + documentCreateViewModel.Number).Length - 8, 8);
+                noteModel.CreatorUser = "";
+                noteModel.UpdaterUser = "";
+                noteModel.CreateDate = DateTime.Now;
+                noteModel.UpdateDate = DateTime.Now;
+                noteModel.Status = true;
+                noteModel.Removed = false;
+
+                await Task.Run(async () =>
+                { return await _noteService.AddAsync(noteModel); }
+                );
 
                 documentElectronicModel.DocumentElectronicId = 0;
                 documentElectronicModel.DocumentId = documentModel.DocumentId;
@@ -361,7 +395,6 @@ namespace SiGe.Controllers
                     await _documentElectronicService.AddAsync(documentElectronicModel);
                 });
 
-
                 if (true)
                 {
                     foreach (var item in documentCreateViewModel.Details)
@@ -382,7 +415,25 @@ namespace SiGe.Controllers
                             await _documentDetailService.AddAsync(documentDetailModel);
                         });
 
+                        noteDetailModel.NoteDetailId = 0;
+                        noteDetailModel.NoteId = noteModel.NoteId;
+                        noteDetailModel.ProductId = item.ProductId;
+                        noteDetailModel.Quantity = item.Quantity;
+                        noteDetailModel.UnitPrice = item.UnitPrice;
+                        noteDetailModel.CreatorUser = "";
+                        noteDetailModel.UpdaterUser = "";
+                        noteDetailModel.CreateDate = DateTime.Now;
+                        noteDetailModel.UpdateDate = DateTime.Now;
+                        noteDetailModel.Status = true;
+                        noteDetailModel.Removed = false;
 
+                        await Task.Run(async () => { return await _noteDetailService.AddAsync(noteDetailModel); });
+
+                        noteDetailDocumentDetailModel.NoteDetailDocumentDetailId = 0;
+                        noteDetailDocumentDetailModel.DocumentDetailId = documentDetailModel.DocumentDetailId;
+                        noteDetailDocumentDetailModel.NoteDetailId = noteDetailModel.NoteDetailId;
+
+                        await Task.Run(async () => { return await _noteDetailDocumentDetailService.AddAsync(noteDetailDocumentDetailModel); });
                     }
                 }
             }
@@ -433,5 +484,272 @@ namespace SiGe.Controllers
             return Json(number);
 
         }
+
+        // GET: Document/Details/id
+        [Authorize]
+        public async Task<IActionResult> Details( int id)
+        {
+            var documentElectronic = await _documentElectronicService.GetByDocumentIdAsync(id);
+
+            return View(documentElectronic);
+        }
+
+        // GET: Document/Print/id
+        [Authorize]
+        public async Task<IActionResult> Print(int id)
+        {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(ParameterUTL.toolsService);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var IntIdComprobante = id;
+            var documentDetail = new List<DocumentDetail>();
+
+            var EmpresaBe = await Task.Run(async () => { return await _companyService.GetByIdAsync(1); });
+            var SucursalBe = await Task.Run(async () => { return await _branchOfficeService.GetByIdAsync(1); });
+            var ComprobanteBe = await Task.Run(async () => { return await _documentService.GetByIdAsync(IntIdComprobante); });
+            var ComprobanteElectronicoBe = await Task.Run(async () => { return await _documentElectronicService.GetByDocumentIdAsync(IntIdComprobante); });
+            var TipoComprobanteBe = await Task.Run(async () => { return await _documentTypeService.GetByIdAsync(ComprobanteBe.DocumentTypeId); });
+            var FormaPagoBe = await Task.Run(async () => { return await _methodPaymentService.GetByIdAsync(ComprobanteBe.MethodPaymentId); });
+            var ClienteProveedorBe = await Task.Run(async () => { return await _customerService.GetByIdAsync(ComprobanteBe.CustomerId); });
+            var detailDoc = await Task.Run(async () => { return await _documentDetailService.GetDocumentDetailProductByDocumentIdAsync(IntIdComprobante); });
+            var TipoDocumentoIdentidadBe = await Task.Run(async () => { return await _identityDocumentTypeService.GetByIdAsync(ClienteProveedorBe.IdentityDocumentTypeId); });
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img","20449200854.png");
+            ParameterUTL.StrRegistroUnicoContribuyente = EmpresaBe.IdentityDocumentNumber;
+            ParameterUTL.StrRazonSocial = EmpresaBe.BusinessName;
+            foreach (var item  in detailDoc)
+            {
+                var detail = new DocumentDetail();
+                detail.Code = Convert.ToString(item.Code);
+                detail.Description = Convert.ToString(item.Description);
+                detail.Quantity = Convert.ToInt32(item.Quantity);
+                detail.Unit = "";
+                detail.UnitPrice = Math.Round(Convert.ToDecimal(item.UnitPrice), 2);
+
+                documentDetail.Add(detail);
+            }
+
+            var documentoPdfRequest = new PdfRequest
+            {
+                Logo = Convert.ToBase64String(System.IO.File.ReadAllBytes(path)),
+                Color = ParameterUTL.StrColorReport,
+                Document = new DocumentHeader
+                {
+                    DocumentType = Convert.ToInt32(TipoComprobanteBe.DocumentTypeId),
+                    Denomination = TipoComprobanteBe.Description,
+                    Document = $"{ComprobanteBe.Serie}-{("00000000" + ComprobanteBe.Number).Substring(("00000000" + ComprobanteBe.Number).Length - 8, 8)}"
+                },
+                DocumentReference = new DocumentHeader
+                {
+                    DocumentType = 0,
+                    Denomination = "fgdg",
+                    Document = "gfgfg"
+                },
+                Company = new Company
+                {
+                    RUC = ParameterUTL.StrRegistroUnicoContribuyente,
+                    BusinessName = ParameterUTL.StrRazonSocial,
+                    Observation = "Servicio de Facturación para Mypes.",
+                    Web = "ventas@gmail.com"
+                },
+                BranchOffice = new BranchOffice
+                {
+                    Name = SucursalBe.Name,
+                    Address = SucursalBe.Address,
+                    Cellular = SucursalBe.Cellular,
+                    Telephone = SucursalBe.Telephone,
+                    Email = ParameterUTL.StrRegistroUnicoContribuyente.Equals("20602631029") ? "segurimas.peru@hotmail.com" : "casaxperu@hotmail.com"
+                },
+                CustomerProvider = new CustomerProvider
+                {
+                    IdentityDocumentNumber = Convert.ToString(ClienteProveedorBe.IdentityDocumentNumber),
+                    BusinessName = Convert.ToString(ClienteProveedorBe.BusinessName),
+                    Address = ClienteProveedorBe.Address
+                },
+                IssueDate = ComprobanteBe.IssueDate,
+                ExpiredDate = ComprobanteBe.IssueDate,
+                DocumentDetails = documentDetail,
+                TaxableAmount = ComprobanteBe.SubTotal,
+                TaxAmount = ComprobanteBe.Tax,
+                Amount = ComprobanteBe.Total,
+                IsElectronic = (ComprobanteElectronicoBe == null ? false : true),
+                MethodPayment = FormaPagoBe.Description,
+                DocumentElectronic = new DocumentElectronic
+                {
+                    SummaryValue = ComprobanteElectronicoBe == null ? "" : ComprobanteElectronicoBe.SummaryValue,
+                    StringQR = ComprobanteElectronicoBe == null ? "" : ComprobanteElectronicoBe.StringQR
+                },
+                CurrentAccount = new CurrentAccount
+                {
+                    FinancialEntity = "",
+                    Denomination = "",
+                    CurrentAccountNumber = "",
+                    InterbankAccountCode = ""
+                },
+                AdditionalData = new AdditionalData
+                {
+                    AdditionalPrice = "",
+                    ExpiratedDate = "",
+                    Observation = ComprobanteBe.Observation
+                }
+            };
+
+            var jsonEnvioPdfDocumento = await client.PostAsJsonAsync("api/v1/GenerateDocument", documentoPdfRequest);
+
+            var Rpta = await jsonEnvioPdfDocumento.Content.ReadAsAsync<PdfResponse>();
+
+            var documentoPdfResponse = (PdfResponse)Rpta;
+
+            if (documentoPdfResponse.Success)
+            {
+                var StrArchivoValorPdf =  Convert.FromBase64String(documentoPdfResponse.Value);
+                Stream stream = new MemoryStream(StrArchivoValorPdf);
+
+                Response.Headers.Add("Content-Disposition", new ContentDisposition
+                {
+                    FileName = $"{ComprobanteBe.Serie}-{("00000000" + ComprobanteBe.Number).Substring(("00000000" + ComprobanteBe.Number).Length - 8, 8)}" + ".pdf",
+                    Inline = true // false = prompt the user for downloading; true = browser to try to show the file inline
+                }.ToString());
+
+                return File(stream, "application/pdf");
+
+            }
+            else
+            {
+                return RedirectToAction("Index", "Document");
+            }
+            
+        }
+
+        // GET: Document/Delete/5
+        [Authorize]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var documentElectronic = await _documentElectronicService.GetByDocumentIdAsync(id.Value);
+            if (documentElectronic == null)
+            {
+                return NotFound();
+            }
+
+            return View(documentElectronic);
+        }
+
+        // POST: Persons/Delete/5
+        [Authorize]
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var NotaBe = new NoteModel();
+            var NotaDetalleBe = new NoteDetailModel();
+            var NotaDetalleComprobanteDetalleBe = new NoteDetailDocumentDetailModel();
+
+            var documentModel = await _documentService.GetByIdAsync(id);
+
+
+            if (documentModel != null)
+            {
+                var IntIdComprobante = Convert.ToInt32(id);
+
+                var ComprobanteBe = await Task.Run(async () =>
+                {
+                    return await _documentService.GetByIdAsync(IntIdComprobante);
+                });
+
+                if (!ComprobanteBe.Status)
+                {
+                    ModelState.AddModelError("DocumentId", "Este registro no se puede anular, ya se encuentra anulado");
+                    var documentElec= await _documentElectronicService.GetByDocumentIdAsync(id);
+                    return View(documentElec);
+                }
+                
+
+                ComprobanteBe.UpdaterUser = "";
+                ComprobanteBe.UpdateDate = DateTime.Now;
+                ComprobanteBe.Status = false;
+
+                await Task.Run(async () => {
+                    return await _documentService.UpdateAsync(ComprobanteBe);
+                });
+
+                NotaBe.NoteId = 0;
+                NotaBe.NoteTypeId = 3;
+                NotaBe.BranchOfficeId = 1;
+                NotaBe.CustomerId = ComprobanteBe.CustomerId;
+                NotaBe.IssueDate = DateTime.Now;
+
+                var number = await Task.Run(async () => {
+                    return await _noteService.GetNewNumberByActionTypeAsync(0);
+                });
+
+                NotaBe.Number = number;
+                NotaBe.Description =  "Ingreso por Anulación de Comprobante" + " | Anulación de : " + Convert.ToString($"{ComprobanteBe.Serie}-{("00000000" + ComprobanteBe.Number).Substring(("00000000" + ComprobanteBe.Number).Length - 8, 8)}");
+                NotaBe.CreatorUser = "";
+                NotaBe.UpdaterUser = "";
+                NotaBe.CreateDate = DateTime.Now;
+                NotaBe.UpdateDate = DateTime.Now;
+                NotaBe.Status = true;
+                NotaBe.Removed = false;
+
+                await Task.Run(async () => {
+                    await _noteService.AddAsync(NotaBe);
+                });
+
+                var ComprobanteDetalle = await Task.Run(async () =>
+                {
+                    return await _documentDetailService.GetByDocumentIdAsync(IntIdComprobante);
+                });
+
+                foreach (var detalle in ComprobanteDetalle)
+                {
+                    detalle.UpdaterUser = "";
+                    detalle.UpdateDate = DateTime.Now;
+                    detalle.Status = false;
+                    await Task.Run(async () => {
+                        return await _documentDetailService.UpdateAsync(detalle);
+                    });
+
+                    NotaDetalleBe.NoteDetailId = 0;
+                    NotaDetalleBe.NoteId = NotaBe.NoteId;
+                    NotaDetalleBe.ProductId = detalle.ProductId;
+                    NotaDetalleBe.Quantity = detalle.Quantity;
+                    NotaDetalleBe.UnitPrice = detalle.UnitPrice;
+                    NotaDetalleBe.CreatorUser = "";
+                    NotaDetalleBe.UpdaterUser = "";
+                    NotaDetalleBe.CreateDate = DateTime.Now;
+                    NotaDetalleBe.UpdateDate = DateTime.Now;
+                    NotaDetalleBe.Status = true;
+                    NotaDetalleBe.Removed = false;
+
+
+                    await Task.Run(async () => {
+                        await _noteDetailService.AddAsync(NotaDetalleBe);
+                    });
+
+                    NotaDetalleComprobanteDetalleBe.NoteDetailDocumentDetailId = 0;
+                    NotaDetalleComprobanteDetalleBe.NoteDetailId = NotaDetalleBe.NoteDetailId;
+                    NotaDetalleComprobanteDetalleBe.DocumentDetailId = detalle.DocumentDetailId;
+
+                    await Task.Run(async () => {
+                        await _noteDetailDocumentDetailService.AddAsync(NotaDetalleComprobanteDetalleBe);
+                    });
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                ModelState.AddModelError("DocumentId", "Este registro no se puede anular, por que no existe");
+            }
+            var documentElectronic = await _documentElectronicService.GetByDocumentIdAsync(id);
+            return View(documentElectronic);
+        }
+
     }
 }
