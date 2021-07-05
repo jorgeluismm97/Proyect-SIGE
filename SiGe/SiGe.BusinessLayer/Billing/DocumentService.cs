@@ -43,6 +43,16 @@ namespace SiGe
             return await _documentRepository.GetByCompanyIdAsync(companyId);
         }
 
+        public async Task<List<DocumentViewModel>> GetByCompanyIdDateAsync(int companyId, DateTime startingDate, DateTime endingDate)
+        {
+            return await _documentRepository.GetByCompanyIdDateAsync(companyId, startingDate, endingDate);
+        }
+
+        public async Task<List<MethodPaymentViewModel>> GetMethodPaymentByCompanyIdDateAsync(int companyId, DateTime startingDate, DateTime endingDate)
+        {
+            return await _documentRepository.GetMethodPaymentByCompanyIdDateAsync(companyId, startingDate, endingDate);
+        }
+
         public async Task<int> GetNewNumberByDocumentTypeIdSerieIndicatorAsync(int companyId, int documentTypeId, string serie)
         {
             return await _documentRepository.GetNewNumberByDocumentTypeIdSerieIndicatorAsync(companyId, documentTypeId,serie);

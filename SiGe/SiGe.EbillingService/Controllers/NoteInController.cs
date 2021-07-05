@@ -35,7 +35,7 @@ namespace SiGe.Controllers
         public async Task<IActionResult> Create()
         {
 
-            var products = await _productService.GetByCompanyIdAsync(HttpContext.Session.GetInt32("companyId").Value);
+            var products = await _productService.GetProductQuantityByCompanyIdAsync(HttpContext.Session.GetInt32("companyId").Value);
             var noteTypes = await _noteTypeService.GetByActionType(0);
             var number = await _noteService.GetNewNumberByActionTypeAsync(0);
 

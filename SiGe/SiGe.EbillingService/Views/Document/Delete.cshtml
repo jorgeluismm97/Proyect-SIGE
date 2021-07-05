@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model SiGe.DocumentElectronicModel;
+
+@{ ViewData["Title"] = "Anular"; }
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <h1>Anular</h1>
+            <div>
+                <h3>¿Esta seguro que desea anular este comprobante?</h3>
+            </div>
+            <hr />
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.ResponseCode)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.ResponseCode)</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.ResponseMessage)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.ResponseMessage)</label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayNameFor(model => model.NumberTicketCDR)</label>
+                <div class="col-sm-12 col-md-12">
+                    <label class="col-sm-12 col-md-12 col-form-label">@Html.DisplayFor(model => model.NumberTicketCDR)</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DocumentId" />
+        <span asp-validation-for="DocumentId" class="text-danger"></span>
+        <input type="submit" value="Anular" class="btn btn-warning" />
+        <input asp-action="Index" type="submit" value="Volver" class="btn btn-danger" />
+    </form>
+</div>

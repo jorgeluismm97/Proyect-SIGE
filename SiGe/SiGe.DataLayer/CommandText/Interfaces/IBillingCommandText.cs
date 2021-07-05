@@ -12,6 +12,8 @@
         string GetDocumentSearchView { get;  }
         string GetDocumentByDocumentTypeIdSerieNumber { get; }
         string GetDocumentNewNumber { get; }
+        string GetDocumentByCompanyIdDate { get; }
+        string GetMethodPaymentByCompanyIdDate { get; }
 
         // Bil_DocumentDetail
 
@@ -19,7 +21,8 @@
         string UpdateDocumentDetail { get; }
         string GetDocumentDetailById { get; }
         string GetAllDocumentDetail { get; }
-        string GetDocumentByDocumentId { get; }
+        string GetDocumentDetailProductByDocumentId { get; }
+        string GetDocumentDetailByDocumentId { get; }
 
         // Bil_DocumentElectronic
 

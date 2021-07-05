@@ -10,7 +10,7 @@ namespace SiGe
         {
             NoteTypes = new List<NoteTypeModel>();
             Details = new List<NoteCreateViewModelDetail>();
-            Products = new List<ProductModel>();
+            Products = new List<ProductModelView>();
         }
 
         public int NoteId { get; set; }
@@ -20,7 +20,7 @@ namespace SiGe
         public string Number { get; set; }
         public string Description { get; set; }
         public List<NoteCreateViewModelDetail> Details { get; set; }
-        public List<ProductModel> Products { get; set; }
+        public List<ProductModelView> Products { get; set; }
 
         public class NoteCreateViewModelDetail
         {

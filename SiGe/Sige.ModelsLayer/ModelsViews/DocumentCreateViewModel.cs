@@ -30,7 +30,7 @@ namespace SiGe
         public decimal Total { get; set; }
         public List<DocumentCreateViewModelDetail> Details { get; set; }
 
-        public List<ProductModel> Products { get; set; }
+        public List<ProductModelView> Products { get; set; }
         public List<CustomerModel> Customers { get; set; }
 
     }

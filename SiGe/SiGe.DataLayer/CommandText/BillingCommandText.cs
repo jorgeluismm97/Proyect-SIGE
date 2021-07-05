@@ -12,6 +12,8 @@
         public string GetDocumentSearchView => "Usp_Bil_S_Bil_Document_Get_Search_View_Document";
         public string GetDocumentByDocumentTypeIdSerieNumber => "Usp_Bil_S_Bil_Document_Get_By_DocumentTypeId_Serie_Number";
         public string GetDocumentNewNumber => "Usp_Bil_S_Bil_Document_Get_New_Number_By_CompanyId_DocumentTypeId_Serie";
+        public string GetDocumentByCompanyIdDate => "Usp_Bil_S_Bil_Document_Get_By_CompanyId_Date";
+        public string GetMethodPaymentByCompanyIdDate => "Usp_Bil_S_Bil_Document_Get_MethodPayment_By_CompanyId_Date";
 
         // Bil_DocumentDetail
 
@@ -19,7 +21,8 @@
         public string UpdateDocumentDetail => "Usp_Bil_U_Bil_DocumentDetail";
         public string GetDocumentDetailById => "Usp_Bil_S_Bil_DocumentDetail_Get_By_DocumentDetailId";
         public string GetAllDocumentDetail => "Usp_Bil_S_Bil_DocumentDetail";
-        public string GetDocumentByDocumentId => "Usp_Bil_S_Bil_DocumentDetail_Get_By_DocumentId";
+        public string GetDocumentDetailProductByDocumentId => "Usp_Bil_S_Bil_DocumentDetail_Product_Get_By_DocumentId";
+        public string GetDocumentDetailByDocumentId => "Usp_Bil_S_Bil_DocumentDetail_Get_By_DocumentId";
 
         // Bil_DocumentElectronic
 

@@ -150,6 +150,64 @@ namespace SiGe
             return ls;
         }
 
+        public async Task<List<DocumentViewModel>> GetByCompanyIdDateAsync(int companyId, DateTime startingDate, DateTime endingDate)
+        {
+            var ls = new List<DocumentViewModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<DocumentViewModel>(
+                                        _billingCommandText.GetDocumentByCompanyIdDate,
+                                        new
+                                        {
+                                            CompanyId = companyId,
+                                            StartingDate = startingDate,
+                                            EndingDate = endingDate
+                                        },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
+        public async Task<List<MethodPaymentViewModel>> GetMethodPaymentByCompanyIdDateAsync(int companyId, DateTime startingDate, DateTime endingDate)
+        {
+            var ls = new List<MethodPaymentViewModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<MethodPaymentViewModel>(
+                                        _billingCommandText.GetMethodPaymentByCompanyIdDate,
+                                        new
+                                        {
+                                            CompanyId = companyId,
+                                            StartingDate = startingDate,
+                                            EndingDate = endingDate
+                                        },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
         public async Task<int> GetNewNumberByDocumentTypeIdSerieIndicatorAsync(int companyId, int documentTypeId, string serie)
         {
             int number = 0;

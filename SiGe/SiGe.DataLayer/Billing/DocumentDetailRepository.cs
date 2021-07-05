@@ -120,5 +120,55 @@ namespace SiGe
 
             return ls;
         }
+
+
+        // Advanced
+        public async Task<List<NoteProductModelDetail>> GetDocumentDetailProductByDocumentIdAsync(int documentId)
+        {
+            var ls = new List<NoteProductModelDetail>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<NoteProductModelDetail>(
+                                        _billingCommandText.GetDocumentDetailProductByDocumentId,
+                                        new { DocumentId = documentId },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
+
+        public async Task<List<DocumentDetailModel>> GetByDocumentIdAsync(int documentId)
+        {
+            var ls = new List<DocumentDetailModel>();
+
+            try
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var rs = await connection.QueryAsync<DocumentDetailModel>(
+                                        _billingCommandText.GetDocumentDetailByDocumentId,
+                                        new { DocumentId = documentId },
+                                        commandType: CommandType.StoredProcedure
+                                        );
+                    ls.AddRange(rs);
+                }
+            }
+            catch (Exception exception)
+            {
+
+            }
+
+            return ls;
+        }
     }
 }

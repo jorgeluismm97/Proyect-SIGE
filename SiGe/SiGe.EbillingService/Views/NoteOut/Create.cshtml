@@ -150,6 +150,7 @@
                                 <tr>
                                     <th class="table-plus datatable-nosort">Codigo</th>
                                     <th>Producto</th>
+                                    <th>Cantidad</th>
                                     <th class="datatable-nosort">Accion</th>
                                 </tr>
                             </thead>
@@ -165,23 +166,24 @@
                                         @Html.Hidden("Products[" + i + "].ProductId", item.ProductId)
                                         @Html.Hidden("Products[" + i + "].Code", item.Code)
                                         @Html.Hidden("Products[" + i + "].Description", item.Description)
+                                        @Html.Hidden("Products[" + i + "].Quantity", item.Quantity)
+                                <tr class="@selectedRow">
+                                    <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                    <td>
+                                        <div class="dropdown2">
+                                            @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                    <i class="dw dw-more"></i>
+                </a>*@
+                                            @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
+                </div>*@
 
-                                    <tr class="@selectedRow">
-                                        <td class="table-plus"> @Html.DisplayFor(modelItem => item.Code)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
-                                        <td>
-                                            <div class="dropdown2">
-                                                @*<a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                        <i class="dw dw-more"></i>
-                                                    </a>*@
-                                                @*<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.ProductId"><i class="dw dw-edit2"></i>Seleccionar</a>
-                                                    </div>*@
-
-                                                <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId" />
-                                            </div>
-                                        </td>
-                                    </tr>}
+                                            <input type="submit" value="Seleccionar" class="btn btn-primary select" name="action" id="Seleccionar" data-id="@item.ProductId" />
+                                        </div>
+                                    </td>
+                                </tr>}
                             </tbody>
                         </table>
                     </div>

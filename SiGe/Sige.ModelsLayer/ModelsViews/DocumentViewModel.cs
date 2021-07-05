@@ -12,5 +12,6 @@ namespace SiGe
         public string Document { get; set; }
         public string BusinessName { get; set; }
         public decimal Total { get; set; }
+        public bool Status { get; set; }
     }
 }

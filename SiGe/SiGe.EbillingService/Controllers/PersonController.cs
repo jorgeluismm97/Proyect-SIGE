@@ -92,7 +92,7 @@ namespace SiGe.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Companies/Delete/5
+        // GET: Persons/Delete/5
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -110,7 +110,7 @@ namespace SiGe.Controllers
             return View(personModel);
         }
 
-        // POST: Companies/Delete/5
+        // POST: Persons/Delete/5
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
